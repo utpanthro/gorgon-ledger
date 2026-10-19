@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="/src/assets/favicon.svg" type="image/svg+xml" />
   <meta name="theme-color" content="#a44129" />
   <meta name="description" content="A local checklist companion for Project Gorgon." />
   <title>Gorgon Ledger</title>
-  <script src="/shared/storage.js"></script>
+  <script src="/src/shared/storage.js"></script>
   <style>
     :root{--ink:#24231f;--muted:#77736a;--paper:#f2eee4;--card:#fbf8f0;--line:#d8d0bf;--rust:#a44129;--rust-dark:#71301f;--moss:#566b50;--gold:#c9973f;--shadow:0 16px 36px rgba(40,32,23,.09)}
     *{box-sizing:border-box} body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;min-height:100vh}
@@ -27,7 +27,7 @@
 <body>
   <div class="shell">
     <aside>
-      <div class="brand"><div class="mark"><span>G</span></div><div><strong>Gorgon Ledger</strong><small>Adventurer's record</small></div></div><div class="ledger-switch"><a class="active" href="/skills/">Skills</a><a href="/npcs/">NPCs</a></div>
+      <div class="brand"><div class="mark"><span>G</span></div><div><strong>Gorgon Ledger</strong><small>Adventurer's record</small></div></div><div class="ledger-switch"><a class="active" href="/src/skills/">Skills</a><a href="/src/npcs/">NPCs</a></div>
       <div class="nav-label">Collections</div><nav class="nav" id="nav"></nav>
       <div class="aside-foot"><strong>Saved to this computer</strong><br>Your progress is written to a local save file.<br><button class="reset" id="reset">Reset all progress</button></div>
     </aside>
@@ -56,9 +56,9 @@
     function wikiUrl(name){return 'https://wiki.projectgorgon.com/index.php?title='+encodeURIComponent(name.replaceAll(' ','_'));}
     function level(k){return Math.max(0,Math.min(maxFor(k),Number(state[k])||0));}
     function updateSummary(){const all=allItems(),sum=all.reduce((n,x)=>n+level(x.k)/maxFor(x.k)*100,0),maxed=all.filter(x=>level(x.k)===maxFor(x.k)).length,p=Math.round(sum/all.length);document.getElementById('percent').textContent=p+'%';document.getElementById('doneCount').textContent=maxed;document.getElementById('totalCount').textContent=all.length;document.getElementById('bar').style.width=p+'%';}
-    function render(){renderNav();updateSummary();let visible=lists.filter(l=>active==='all'||active===l.id).map(l=>({...l,items:l.items.map((x,i)=>({x,i,k:key(l,i)})).filter(o=>(!hideDone||level(o.k)<maxFor(o.k))&&o.x[0].toLowerCase().includes(query))})).filter(l=>l.items.length);document.getElementById('grid').innerHTML=visible.length?visible.map(l=>{const avg=Math.round(l.items.reduce((n,o)=>n+level(o.k),0)/l.items.length);return `<article class="card"><header class="card-head"><div><h2 class="card-title">${l.name}</h2><div class="card-meta">Average level ${avg} · ${l.items.length} shown</div></div><span class="badge">${l.badge}</span></header><div class="tasks">${l.items.map(o=>`<div class="task ${level(o.k)===maxFor(o.k)?'maxed':''}"><label for="${o.k}"><a href="/skills/detail.html?name=${encodeURIComponent(o.x[0])}&key=${encodeURIComponent(o.k)}">${o.x[0]}</a></label><span class="tag">${o.x[1]}</span><span class="level-wrap"><input class="level" type="number" inputmode="numeric" min="0" max="${maxFor(o.k)}" step="1" id="${o.k}" data-key="${o.k}" value="${level(o.k)}" aria-label="${o.x[0]} level"><span class="level-suffix">/${maxFor(o.k)}</span></span></div>`).join('')}</div></article>`}).join(''):'<div class="empty">Nothing in the ledger matches that view.</div>';document.querySelectorAll('.level').forEach(c=>{c.oninput=()=>{state[c.dataset.key]=Math.max(0,Math.min(maxFor(c.dataset.key),Number(c.value)||0));save();updateSummary();};c.onchange=()=>render();});}
+    function render(){renderNav();updateSummary();let visible=lists.filter(l=>active==='all'||active===l.id).map(l=>({...l,items:l.items.map((x,i)=>({x,i,k:key(l,i)})).filter(o=>(!hideDone||level(o.k)<maxFor(o.k))&&o.x[0].toLowerCase().includes(query))})).filter(l=>l.items.length);document.getElementById('grid').innerHTML=visible.length?visible.map(l=>{const avg=Math.round(l.items.reduce((n,o)=>n+level(o.k),0)/l.items.length);return `<article class="card"><header class="card-head"><div><h2 class="card-title">${l.name}</h2><div class="card-meta">Average level ${avg} · ${l.items.length} shown</div></div><span class="badge">${l.badge}</span></header><div class="tasks">${l.items.map(o=>`<div class="task ${level(o.k)===maxFor(o.k)?'maxed':''}"><label for="${o.k}"><a href="/src/skills/detail.html?name=${encodeURIComponent(o.x[0])}&key=${encodeURIComponent(o.k)}">${o.x[0]}</a></label><span class="tag">${o.x[1]}</span><span class="level-wrap"><input class="level" type="number" inputmode="numeric" min="0" max="${maxFor(o.k)}" step="1" id="${o.k}" data-key="${o.k}" value="${level(o.k)}" aria-label="${o.x[0]} level"><span class="level-suffix">/${maxFor(o.k)}</span></span></div>`).join('')}</div></article>`}).join(''):'<div class="empty">Nothing in the ledger matches that view.</div>';document.querySelectorAll('.level').forEach(c=>{c.oninput=()=>{state[c.dataset.key]=Math.max(0,Math.min(maxFor(c.dataset.key),Number(c.value)||0));save();updateSummary();};c.onchange=()=>render();});}
     document.getElementById('search').oninput=e=>{query=e.target.value.trim().toLowerCase();render();};document.getElementById('hideDone').onclick=e=>{hideDone=!hideDone;e.target.textContent=hideDone?'Show mastered':'Hide mastered';render();};document.getElementById('reset').onclick=()=>{if(confirm('Reset every skill level to 0?')){state={};save();render();}};render();
-    document.querySelector('.ledger-switch').insertAdjacentHTML('beforeend','<a href="/quests/">Quests</a><a href="/foods/">Food</a>');
+    document.querySelector('.ledger-switch').insertAdjacentHTML('beforeend','<a href="/src/quests/">Quests</a><a href="/src/foods/">Food</a>');
   </script>
 </body>
 </html>
