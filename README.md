@@ -43,13 +43,22 @@ the save file automatically when the app loads.
 
 The tracker data is generated from the
 [Project: Gorgon Wiki](https://wiki.projectgorgon.com/). Data-refresh utilities
-live in `work/`; generated JSON files used by the site live in the project root.
+live in `work/`; generated JSON files are stored with the feature that uses them.
+
+## Website structure
+
+- `skills/` contains the skill ledger, skill profiles, rewards, recipes, and teleport data.
+- `foods/` contains the Gourmand ledger and food data.
+- `npcs/` contains the NPC ledger, NPC profiles, quest data, and zone data.
+- `quests/` contains the cross-NPC quest ledger.
+- `shared/` contains browser code shared by every section.
+- `assets/` contains shared visual assets.
 
 ## Repository notes
 
 - `server.py` serves the website and provides the local save API.
-- `storage.js` synchronizes tracker state with the local save file.
-- Root-level HTML pages contain the tracker interface.
+- `shared/storage.js` synchronizes tracker state with the local save file.
+- `index.html` redirects the root URL to the skill ledger at `/skills/`.
 - Dependencies and generated build output are excluded through `.gitignore`.
 
 This is an unofficial community tool and is not affiliated with Elder Game,

@@ -18,6 +18,21 @@ SAVE_PATH = Path(
 ).resolve()
 MAX_BODY_BYTES = 2 * 1024 * 1024
 SAVE_LOCK = threading.Lock()
+LEGACY_REDIRECTS = {
+    "/food.html": "/foods/",
+    "/foods.json": "/foods/data.json",
+    "/npcs.html": "/npcs/",
+    "/npc.html": "/npcs/detail.html",
+    "/npc-quests.json": "/npcs/quests.json",
+    "/npc-zones.json": "/npcs/zones.json",
+    "/quests.html": "/quests/",
+    "/skill.html": "/skills/detail.html",
+    "/skill-details.json": "/skills/details.json",
+    "/skill-recipes.json": "/skills/recipes.json",
+    "/teleport-spots.json": "/skills/teleport-spots.json",
+    "/storage.js": "/shared/storage.js",
+    "/favicon.svg": "/assets/favicon.svg",
+}
 
 
 def read_save() -> tuple[bool, dict[str, str]]:
@@ -61,6 +76,24 @@ class GorgonLedgerHandler(SimpleHTTPRequestHandler):
         self.end_headers()
         self.wfile.write(body)
 
+    def redirect_legacy_path(self) -> bool:
+        parsed = urlparse(self.path)
+        if parsed.path not in LEGACY_REDIRECTS:
+            return False
+        location = LEGACY_REDIRECTS[parsed.path]
+        if parsed.query:
+            location += f"?{parsed.query}"
+        self.send_response(308)
+        self.send_header("Location", location)
+        self.send_header("Content-Length", "0")
+        self.end_headers()
+        return True
+
+    def do_HEAD(self) -> None:
+        if self.redirect_legacy_path():
+            return
+        super().do_HEAD()
+
     def do_OPTIONS(self) -> None:
         if urlparse(self.path).path != "/api/save":
             self.send_error(404)
@@ -73,6 +106,8 @@ class GorgonLedgerHandler(SimpleHTTPRequestHandler):
         self.end_headers()
 
     def do_GET(self) -> None:
+        if self.redirect_legacy_path():
+            return
         path = urlparse(self.path).path
         if path == "/api/health":
             self.send_json(200, {"ok": True, "storage": "file"})
