@@ -58,7 +58,8 @@ live in `work/`; generated JSON files are stored with the feature that uses them
 
 - `server.py` serves the website and provides the local save API.
 - `src/shared/storage.js` synchronizes tracker state with the local save file.
-- `index.html` redirects the root URL to the skill ledger at `/src/skills/`.
+- `src/` is the website root served by `server.py`.
+- `src/index.html` redirects the root URL to the skill ledger at `/skills/`.
 - Dependencies and generated build output are excluded through `.gitignore`.
 
 This is an unofficial community tool and is not affiliated with Elder Game,

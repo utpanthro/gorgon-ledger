@@ -12,6 +12,7 @@ from urllib.parse import urlparse
 
 
 ROOT = Path(__file__).resolve().parent
+WEB_ROOT = ROOT / "src"
 PORT = int(os.environ.get("GORGON_PORT", "4173"))
 SAVE_PATH = Path(
     os.environ.get("GORGON_SAVE_PATH", str(ROOT / "save-data" / "gorgon-ledger.json"))
@@ -19,33 +20,33 @@ SAVE_PATH = Path(
 MAX_BODY_BYTES = 2 * 1024 * 1024
 SAVE_LOCK = threading.Lock()
 LEGACY_REDIRECTS = {
-    "/food.html": "/src/foods/",
-    "/foods.json": "/src/foods/data.json",
-    "/foods/": "/src/foods/",
-    "/foods/data.json": "/src/foods/data.json",
-    "/npcs.html": "/src/npcs/",
-    "/npc.html": "/src/npcs/detail.html",
-    "/npc-quests.json": "/src/npcs/quests.json",
-    "/npc-zones.json": "/src/npcs/zones.json",
-    "/npcs/": "/src/npcs/",
-    "/npcs/detail.html": "/src/npcs/detail.html",
-    "/npcs/quests.json": "/src/npcs/quests.json",
-    "/npcs/zones.json": "/src/npcs/zones.json",
-    "/quests.html": "/src/quests/",
-    "/quests/": "/src/quests/",
-    "/skill.html": "/src/skills/detail.html",
-    "/skill-details.json": "/src/skills/details.json",
-    "/skill-recipes.json": "/src/skills/recipes.json",
-    "/skills/": "/src/skills/",
-    "/skills/detail.html": "/src/skills/detail.html",
-    "/skills/details.json": "/src/skills/details.json",
-    "/skills/recipes.json": "/src/skills/recipes.json",
-    "/skills/teleport-spots.json": "/src/skills/teleport-spots.json",
-    "/teleport-spots.json": "/src/skills/teleport-spots.json",
-    "/storage.js": "/src/shared/storage.js",
-    "/shared/storage.js": "/src/shared/storage.js",
-    "/favicon.svg": "/src/assets/favicon.svg",
-    "/assets/favicon.svg": "/src/assets/favicon.svg",
+    "/food.html": "/foods/",
+    "/foods.json": "/foods/data.json",
+    "/src/foods/": "/foods/",
+    "/src/foods/data.json": "/foods/data.json",
+    "/npcs.html": "/npcs/",
+    "/npc.html": "/npcs/detail.html",
+    "/npc-quests.json": "/npcs/quests.json",
+    "/npc-zones.json": "/npcs/zones.json",
+    "/src/npcs/": "/npcs/",
+    "/src/npcs/detail.html": "/npcs/detail.html",
+    "/src/npcs/quests.json": "/npcs/quests.json",
+    "/src/npcs/zones.json": "/npcs/zones.json",
+    "/quests.html": "/quests/",
+    "/src/quests/": "/quests/",
+    "/skill.html": "/skills/detail.html",
+    "/skill-details.json": "/skills/details.json",
+    "/skill-recipes.json": "/skills/recipes.json",
+    "/src/skills/": "/skills/",
+    "/src/skills/detail.html": "/skills/detail.html",
+    "/src/skills/details.json": "/skills/details.json",
+    "/src/skills/recipes.json": "/skills/recipes.json",
+    "/src/skills/teleport-spots.json": "/skills/teleport-spots.json",
+    "/teleport-spots.json": "/skills/teleport-spots.json",
+    "/storage.js": "/shared/storage.js",
+    "/src/shared/storage.js": "/shared/storage.js",
+    "/favicon.svg": "/assets/favicon.svg",
+    "/src/assets/favicon.svg": "/assets/favicon.svg",
 }
 
 
@@ -78,7 +79,7 @@ def write_save(data: dict[str, str]) -> str:
 
 class GorgonLedgerHandler(SimpleHTTPRequestHandler):
     def __init__(self, *args, **kwargs):
-        super().__init__(*args, directory=str(ROOT), **kwargs)
+        super().__init__(*args, directory=str(WEB_ROOT), **kwargs)
 
     def send_json(self, status: int, payload: dict) -> None:
         body = json.dumps(payload, ensure_ascii=False).encode("utf-8")

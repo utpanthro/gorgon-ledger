@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" href="/src/assets/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
   <meta name="theme-color" content="#a44129" />
   <meta name="description" content="Project Gorgon skill level rewards and stat bonuses." />
   <title>Skill Profile · Gorgon Ledger</title>
-  <script src="/src/shared/storage.js"></script>
+  <script src="/shared/storage.js"></script>
   <style>
     :root{--ink:#24231f;--muted:#77736a;--paper:#f2eee4;--card:#fbf8f0;--line:#d8d0bf;--rust:#a44129;--rust-dark:#71301f;--moss:#566b50;--gold:#c9973f;--shadow:0 16px 36px rgba(40,32,23,.09)}
     *{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;min-height:100vh}button,input{font:inherit}.shell{display:grid;grid-template-columns:280px 1fr;min-height:100vh}aside{padding:34px 24px;border-right:1px solid var(--line);background:#e9e2d4;position:sticky;top:0;height:100vh;display:flex;flex-direction:column}.brand{display:flex;gap:12px;align-items:center;margin-bottom:30px;text-decoration:none;color:inherit}.mark{width:42px;height:42px;border:1px solid var(--rust);display:grid;place-items:center;transform:rotate(45deg);background:var(--rust)}.mark span{transform:rotate(-45deg);color:#fff;font-family:Georgia,serif;font-size:22px}.brand strong{display:block;font-family:Georgia,serif;font-size:20px}.brand small{color:var(--muted);letter-spacing:.1em;text-transform:uppercase;font-size:10px}.back{display:block;text-decoration:none;color:var(--rust-dark);background:var(--card);border:1px solid var(--line);border-radius:6px;padding:11px 13px;margin-bottom:28px;font-size:13px}.side-label{font-size:10px;text-transform:uppercase;letter-spacing:.14em;color:var(--muted);margin-bottom:8px}.level-box{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:18px}.level-row{display:flex;align-items:center;gap:8px}.level-input{width:78px;border:1px solid #aaa292;border-radius:5px;background:#fff;padding:8px;text-align:right;font-family:Georgia,serif;font-size:24px;outline:none}.level-input:focus{border-color:var(--rust);box-shadow:0 0 0 2px rgba(164,65,41,.1)}.level-total{color:var(--muted)}.level-help{font-size:11px;color:var(--muted);line-height:1.5;margin-top:9px}.aside-foot{margin-top:auto;color:var(--muted);font-size:12px;line-height:1.5;border-top:1px solid var(--line);padding-top:18px}
@@ -23,8 +23,8 @@
 <body>
   <div class="shell">
     <aside>
-      <a class="brand" href="/src/skills/"><div class="mark"><span>G</span></div><div><strong>Gorgon Ledger</strong><small>Adventurer's record</small></div></a>
-      <a class="back" href="/src/skills/">← Back to skill ledger</a>
+      <a class="brand" href="/skills/"><div class="mark"><span>G</span></div><div><strong>Gorgon Ledger</strong><small>Adventurer's record</small></div></a>
+      <a class="back" href="/skills/">← Back to skill ledger</a>
       <div class="side-label">Current skill level</div>
       <div class="level-box"><div class="level-row"><input class="level-input" id="level" type="number" min="0" max="100" step="1" inputmode="numeric" aria-label="Current skill level"><span class="level-total" id="levelTotal">/ 100</span></div><div class="level-help">Changes save automatically and update achieved rows.</div></div>
       <div class="aside-foot">Level information is sourced from the Project Gorgon Wiki.</div>
@@ -206,7 +206,7 @@
       if(skill!=='Teleportation')return;
       document.getElementById('teleportSection').hidden=false;
       try{
-        const response=await fetch('/src/skills/teleport-spots.json',{cache:'no-store'});
+        const response=await fetch('/skills/teleport-spots.json',{cache:'no-store'});
         if(!response.ok)throw new Error('Teleportation spot data unavailable');
         teleportSpots=await response.json();
         renderTeleportSpots();
@@ -218,7 +218,7 @@
     const escapeHtml=s=>String(s).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');
     async function loadRewards(){
       try{
-        const [detailResponse,recipeResponse]=await Promise.all([fetch('/src/skills/details.json',{cache:'no-store'}),fetch('/src/skills/recipes.json',{cache:'no-store'})]);
+        const [detailResponse,recipeResponse]=await Promise.all([fetch('/skills/details.json',{cache:'no-store'}),fetch('/skills/recipes.json',{cache:'no-store'})]);
         if(!detailResponse.ok)throw new Error('Local skill data unavailable');
         const data=await detailResponse.json();
         const recipeData=recipeResponse.ok?await recipeResponse.json():{};
