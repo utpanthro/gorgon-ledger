@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <meta name="theme-color" content="#a44129" />
+  <meta name="description" content="Project Gorgon skill level rewards and stat bonuses." />
+  <title>Skill Profile · Gorgon Ledger</title>
+  <script src="storage.js"></script>
+  <style>
+    :root{--ink:#24231f;--muted:#77736a;--paper:#f2eee4;--card:#fbf8f0;--line:#d8d0bf;--rust:#a44129;--rust-dark:#71301f;--moss:#566b50;--gold:#c9973f;--shadow:0 16px 36px rgba(40,32,23,.09)}
+    *{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;min-height:100vh}button,input{font:inherit}.shell{display:grid;grid-template-columns:280px 1fr;min-height:100vh}aside{padding:34px 24px;border-right:1px solid var(--line);background:#e9e2d4;position:sticky;top:0;height:100vh;display:flex;flex-direction:column}.brand{display:flex;gap:12px;align-items:center;margin-bottom:30px;text-decoration:none;color:inherit}.mark{width:42px;height:42px;border:1px solid var(--rust);display:grid;place-items:center;transform:rotate(45deg);background:var(--rust)}.mark span{transform:rotate(-45deg);color:#fff;font-family:Georgia,serif;font-size:22px}.brand strong{display:block;font-family:Georgia,serif;font-size:20px}.brand small{color:var(--muted);letter-spacing:.1em;text-transform:uppercase;font-size:10px}.back{display:block;text-decoration:none;color:var(--rust-dark);background:var(--card);border:1px solid var(--line);border-radius:6px;padding:11px 13px;margin-bottom:28px;font-size:13px}.side-label{font-size:10px;text-transform:uppercase;letter-spacing:.14em;color:var(--muted);margin-bottom:8px}.level-box{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:18px}.level-row{display:flex;align-items:center;gap:8px}.level-input{width:78px;border:1px solid #aaa292;border-radius:5px;background:#fff;padding:8px;text-align:right;font-family:Georgia,serif;font-size:24px;outline:none}.level-input:focus{border-color:var(--rust);box-shadow:0 0 0 2px rgba(164,65,41,.1)}.level-total{color:var(--muted)}.level-help{font-size:11px;color:var(--muted);line-height:1.5;margin-top:9px}.aside-foot{margin-top:auto;color:var(--muted);font-size:12px;line-height:1.5;border-top:1px solid var(--line);padding-top:18px}
+    main{padding:38px clamp(28px,6vw,90px) 80px;max-width:1280px;width:100%;margin:0 auto}.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:64px}.eyebrow{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--rust);font-weight:700}.wiki-link{color:var(--rust-dark);text-decoration:none;font-size:13px;border-bottom:1px solid var(--rust);padding-bottom:2px}.wiki-link:hover{color:var(--rust)}.hero{display:grid;grid-template-columns:1fr auto;gap:40px;align-items:end;margin-bottom:42px}.hero h1{font-family:Georgia,serif;font-weight:400;font-size:clamp(44px,7vw,76px);line-height:1;margin:0 0 15px;letter-spacing:-.04em}.hero p{color:var(--muted);line-height:1.7;margin:0;max-width:650px}.hero-summary{display:flex;align-items:center;gap:18px}.ring{width:150px;height:150px;border-radius:50%;background:conic-gradient(var(--rust) var(--progress),#ddd5c7 0);display:grid;place-items:center;position:relative;flex:0 0 auto}.ring:before{content:"";width:125px;height:125px;border-radius:50%;background:var(--paper);position:absolute}.ring strong{position:relative;font-family:Georgia,serif;font-size:38px;font-weight:400}.total-card{width:220px;min-height:150px;background:var(--card);border:1px solid var(--line);border-radius:9px;padding:18px;box-shadow:var(--shadow);display:flex;flex-direction:column;justify-content:center}.total-label{font-size:10px;text-transform:uppercase;letter-spacing:.13em;color:var(--rust);font-weight:700;margin-bottom:10px}.total-value{font-family:Georgia,serif;font-size:18px;line-height:1.5;white-space:pre-line}.total-level{font-size:10px;color:var(--muted);margin-top:9px}.section-head{display:flex;justify-content:space-between;align-items:end;gap:20px;margin:50px 0 16px}.section-head h2{font-family:Georgia,serif;font-size:28px;font-weight:400;margin:0}.section-head p{margin:4px 0 0;color:var(--muted);font-size:12px}.collapse-toggle{border:1px solid var(--line);background:var(--card);color:var(--rust-dark);border-radius:6px;padding:8px 12px;cursor:pointer;white-space:nowrap}.collapse-toggle:hover{border-color:var(--rust)}.collapse-toggle:focus-visible{outline:2px solid var(--rust);outline-offset:2px}.collapse-toggle .arrow{display:inline-block;margin-right:6px;transition:transform .15s}.collapse-toggle[aria-expanded="false"] .arrow{transform:rotate(-90deg)}
+    .table-card{background:var(--card);border:1px solid var(--line);border-radius:9px;box-shadow:var(--shadow);overflow:auto}table{width:100%;border-collapse:collapse;min-width:1080px}th{text-align:left;padding:13px 18px;background:#e9e2d4;color:var(--muted);text-transform:uppercase;letter-spacing:.12em;font-size:10px}th:first-child{width:125px}td{padding:14px 18px;border-top:1px solid #e7e1d5;line-height:1.45;vertical-align:top}.milestone.achieved{display:none}.milestone.needs-favor{background:#d6814f}.milestone.needs-favor .source-ability,.milestone.needs-favor .obtained-name{color:#4b2a1d}.milestone.needs-favor .source-link{color:#3d2118;border-color:rgba(61,33,24,.45)}.level-pill{display:inline-flex;align-items:center;justify-content:center;min-width:44px;padding:4px 8px;border:1px solid var(--line);border-radius:20px;font-size:12px;font-variant-numeric:tabular-nums}.status{font-size:10px;text-transform:uppercase;letter-spacing:.09em;color:var(--moss);margin-left:9px}.cell-lines{white-space:pre-line}.reward-item+.reward-item,.source-item+.source-item,.obtained-item+.obtained-item{margin-top:7px}.source-ability{display:block;color:var(--muted);font-size:11px;margin-bottom:2px}.source-link{color:var(--rust-dark);text-decoration:none;border-bottom:1px solid rgba(164,65,41,.35)}.source-link:hover{color:var(--rust);border-color:var(--rust)}.favor-requirement{display:block;font-size:10px;font-weight:700;margin-top:4px}.obtained-item{min-height:20px;display:flex;align-items:center;gap:7px}.obtained-box{width:17px;height:17px;margin:0;accent-color:var(--moss);cursor:pointer}.obtained-box:disabled{cursor:default}.obtained-name{font-size:11px;color:var(--muted)}.no-value{color:#aaa292}.loading,.empty{padding:45px 25px;text-align:center;color:var(--muted);line-height:1.6}.loading:before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--gold);margin-right:9px;animation:pulse 1s infinite alternate}@keyframes pulse{to{opacity:.25}}
+    .milestone.achieved{display:table-row;background:#eee9df}.milestone.achieved td:not(.obtained-cell){opacity:.52}.milestone.available{background:#dce8cf}
+    .checklist-card{background:var(--card);border:1px solid var(--line);border-radius:9px;box-shadow:var(--shadow);overflow:hidden}.check-row{display:grid;grid-template-columns:44px minmax(180px,1.1fr) minmax(170px,.8fr) minmax(210px,1.2fr);gap:14px;align-items:start;padding:14px 18px;border-top:1px solid #e7e1d5}.check-row:first-child{border-top:0}.check-row.obtained{background:#eee9df;color:#77736a}.check-row.needs-favor{background:#e8a273}.check-row.available{background:#dce8cf}.check-row label{display:flex;align-items:flex-start;gap:9px;font-weight:600}.check-row .obtained-box{flex:0 0 auto;margin-top:2px}.check-meta{font-size:11px;color:var(--muted);line-height:1.5;white-space:pre-line}.check-source{font-size:12px;line-height:1.55}.check-badge{display:inline-block;margin-left:7px;color:var(--moss);font-size:9px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.checklist-key{display:flex;flex-wrap:wrap;gap:12px;font-size:11px;color:var(--muted)}.key-swatch{display:inline-block;width:10px;height:10px;margin-right:5px;border:1px solid rgba(0,0,0,.08);vertical-align:-1px}.key-swatch.available{background:#dce8cf}.key-swatch.needs-favor{background:#e8a273}
+    .teleport-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.teleport-zone{background:var(--card);border:1px solid var(--line);border-radius:9px;box-shadow:var(--shadow);overflow:hidden}.teleport-zone-head{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:15px 18px;background:#e9e2d4}.teleport-zone-title{font-family:Georgia,serif;font-size:21px;font-weight:400;margin:0}.teleport-zone-title a{color:var(--ink);text-decoration:none}.teleport-zone-title a:hover{color:var(--rust)}.teleport-zone-count{font-size:10px;color:var(--muted);white-space:nowrap}.teleport-row{display:grid;grid-template-columns:24px 1fr auto;gap:10px;align-items:start;padding:12px 16px;border-top:1px solid #e7e1d5}.teleport-row.used{background:#eee9df;color:var(--muted)}.teleport-row.used .teleport-location{text-decoration:line-through}.teleport-check{width:17px;height:17px;margin:1px 0 0;accent-color:var(--moss);cursor:pointer}.teleport-location{font-size:12px;line-height:1.5}.teleport-type{font-size:9px;text-transform:uppercase;letter-spacing:.07em;color:var(--rust-dark);border:1px solid var(--line);border-radius:20px;padding:4px 7px;white-space:nowrap}.teleport-summary{color:var(--moss);font-size:12px;font-weight:700}
+    @media(max-width:800px){.shell{grid-template-columns:1fr}aside{position:static;height:auto;border-right:0;border-bottom:1px solid var(--line);padding:20px}.brand{margin-bottom:18px}.back{display:inline-block;margin-bottom:18px}.level-box{max-width:260px}.aside-foot{display:none}main{padding:30px 20px 60px}.top{margin-bottom:42px}.hero{grid-template-columns:1fr}.hero-summary{flex-wrap:wrap}.ring{width:110px;height:110px}.ring:before{width:90px;height:90px}.ring strong{font-size:30px}.total-card{min-height:110px;width:min(220px,100%)}.section-head{align-items:start;flex-direction:column;gap:6px}th:first-child{width:100px}td,th{padding:12px}.status{display:block;margin:5px 0 0}.check-row{grid-template-columns:1fr}.check-meta,.check-source{padding-left:26px}.teleport-grid{grid-template-columns:1fr}.teleport-row{grid-template-columns:24px 1fr}.teleport-type{grid-column:2;width:max-content}}
+    .milestone.needs-favor{background:#e8a273}
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <aside>
+      <a class="brand" href="index.html"><div class="mark"><span>G</span></div><div><strong>Gorgon Ledger</strong><small>Adventurer's record</small></div></a>
+      <a class="back" href="index.html">← Back to skill ledger</a>
+      <div class="side-label">Current skill level</div>
+      <div class="level-box"><div class="level-row"><input class="level-input" id="level" type="number" min="0" max="100" step="1" inputmode="numeric" aria-label="Current skill level"><span class="level-total" id="levelTotal">/ 100</span></div><div class="level-help">Changes save automatically and update achieved rows.</div></div>
+      <div class="aside-foot">Level information is sourced from the Project Gorgon Wiki.</div>
+    </aside>
+    <main>
+      <div class="top"><span class="eyebrow">Skill profile</span><a class="wiki-link" id="wiki" target="_blank" rel="noopener">Open main wiki article ↗</a></div>
+      <section class="hero"><div><h1 id="name">Skill</h1><p>Level rewards and stat bonuses along the path to mastery.</p></div><div class="hero-summary"><div class="ring" id="ring"><strong id="ringValue">0</strong></div><div class="total-card"><div class="total-label">Total stat bonuses</div><div class="total-value" id="totalStats">Loading…</div><div class="total-level" id="totalStatsLevel"></div></div></div></section>
+      <div class="section-head"><h2>Level rewards &amp; stat bonuses</h2><p>Obtained rows stay visible and muted.</p></div>
+      <section class="table-card" id="milestones"><div class="loading">Loading level data from the wiki…</div></section>
+      <div class="section-head"><h2>Ability checklist</h2><div class="checklist-key"><span><i class="key-swatch available"></i>Available to purchase</span><span><i class="key-swatch needs-favor"></i>More favor needed</span></div></div>
+      <section class="checklist-card" id="abilityChecklist"><div class="loading">Loading abilities…</div></section>
+      <div class="section-head"><div><h2>Recipe checklist</h2><p>Leveling recipes check automatically; purchased and discovered recipes are manual.</p></div><button class="collapse-toggle" id="recipeToggle" type="button" aria-expanded="true" aria-controls="recipeChecklist"><span class="arrow" aria-hidden="true">▾</span><span id="recipeToggleLabel">Hide recipes</span></button></div>
+      <section class="checklist-card" id="recipeChecklist"><div class="loading">Loading recipes…</div></section>
+      <section id="teleportSection" hidden>
+        <div class="section-head"><h2>Teleportation spots</h2><div class="teleport-summary" id="teleportSummary">0 of 0 used</div></div>
+        <div class="teleport-grid" id="teleportSpots"><div class="loading">Loading teleportation circles…</div></div>
+      </section>
+    </main>
+  </div>
+  <script>
+    const params=new URLSearchParams(location.search);
+    const skill=params.get('name')||'Unknown Skill';
+    const key=params.get('key')||'';
+    let state=JSON.parse(localStorage.getItem('gorgon-ledger')||'{}');
+    let obtained=JSON.parse(localStorage.getItem('gorgon-obtained')||'{}');
+    const socialState=JSON.parse(localStorage.getItem('gorgon-social')||'{}');
+    const favorLevels=['Despised','Hated','Disliked','Tolerated','Neutral','Comfortable','Friends','Close Friends','Best Friends','Like Family','Soul Mates'];
+    Object.keys(state).forEach(k=>{if(typeof state[k]==='boolean')state[k]=state[k]?100:0;});
+    let allLevels=[],milestones=[],recipes=[],teleportSpots=[];
+    let teleportUsed=JSON.parse(localStorage.getItem('gorgon-teleport-spots')||'{}');
+    let recipeCollapseState=JSON.parse(localStorage.getItem('gorgon-recipe-collapsed')||'{}');
+    const skillMax=skill==='Gourmand'?125:100;
+    const clamp=v=>Math.max(0,Math.min(skillMax,Number(v)||0));
+    const current=()=>clamp(state[key]);
+    const wikiUrl='https://wiki.projectgorgon.com/index.php?title='+encodeURIComponent(skill.replaceAll(' ','_'));
+    const normalizeWikiHref=href=>String(href||'')
+      .replace('https://wiki.projectgorgon.com/wiki/','https://wiki.projectgorgon.com/index.php?title=')
+      .replace('https://wiki.projectgorgon.com/w/index.php?title=','https://wiki.projectgorgon.com/index.php?title=');
+    const isLeveling=source=>source.label.trim().toLowerCase()==='leveling';
+    const isTraining=source=>/^training:/i.test(source.label.trim());
+    const trainerFavor=source=>{
+      const trainer=source.trainer||source.label.replace(/^Training:\s*/i,''),spaced=trainer.replaceAll('_',' '),plain=spaced.replace(/\s*\(NPC\)$/i,'');
+      return socialState[trainer]||socialState[spaced]||socialState[plain]||'Neutral';
+    };
+    const meetsFavor=source=>!source.requiredFavor||favorLevels.indexOf(trainerFavor(source))>=favorLevels.indexOf(source.requiredFavor);
+    const purchaseState=(level,sources,checked)=>{
+      if(checked||current()<level)return '';
+      const trainers=(sources||[]).filter(isTraining);
+      if(!trainers.length)return '';
+      return trainers.some(meetsFavor)?'available':'needs-favor';
+    };
+    document.title=skill+' · Gorgon Ledger';
+    document.getElementById('name').textContent=skill;
+    document.getElementById('wiki').href=wikiUrl;
+    document.getElementById('level').max=skillMax;
+    document.getElementById('levelTotal').textContent='/ '+skillMax;
+
+    function renderRecipeCollapse(){
+      const collapsed=Boolean(recipeCollapseState[skill]);
+      document.getElementById('recipeChecklist').hidden=collapsed;
+      document.getElementById('recipeToggle').setAttribute('aria-expanded',String(!collapsed));
+      document.getElementById('recipeToggleLabel').textContent=collapsed?'Show recipes':'Hide recipes';
+    }
+    document.getElementById('recipeToggle').onclick=()=>{
+      if(recipeCollapseState[skill])delete recipeCollapseState[skill];else recipeCollapseState[skill]=true;
+      localStorage.setItem('gorgon-recipe-collapsed',JSON.stringify(recipeCollapseState));
+      renderRecipeCollapse();
+    };
+    renderRecipeCollapse();
+
+    function renderLevel(){
+      const n=current();
+      document.getElementById('level').value=n;
+      document.getElementById('ringValue').textContent=n;
+      document.getElementById('ring').style.setProperty('--progress',Math.round(n/skillMax*100)+'%');
+      renderTotalStats();
+      renderMilestones();
+      renderChecklists();
+    }
+
+    function renderTotalStats(){
+      const eligible=allLevels.filter(row=>row.level<=current()&&row.totals),latest=eligible[eligible.length-1];
+      document.getElementById('totalStats').textContent=latest?.totals||'No bonuses yet';
+      document.getElementById('totalStatsLevel').textContent=latest?'Cumulative through level '+latest.level:'';
+    }
+
+    function renderMilestones(){
+      if(!milestones.length)return;
+      const value=v=>v?`<span class="cell-lines">${escapeHtml(v)}</span>`:'<span class="no-value">&mdash;</span>';
+      const rewardLines=r=>String(r.reward||'').split('\n').map(item=>item.trim()).filter(Boolean).filter(item=>!(r.abilities||[]).some(ability=>item.toLowerCase()===('gain ability: '+ability.name).toLowerCase()));
+      const trackedItems=r=>[...(r.abilities||[]).map(ability=>({name:ability.name,ability})),...rewardLines(r).map(name=>({name,reward:true}))];
+      const rewards=r=>{
+        const items=[...(r.abilities||[]).map(ability=>'Gain Ability: '+ability.name),...rewardLines(r)];
+        return items.length?items.map(item=>`<div class="reward-item">${escapeHtml(item)}</div>`).join(''):'<span class="no-value">&mdash;</span>';
+      };
+      const sources=r=>{
+        const abilities=(r.abilities||[]).filter(a=>a.sources?.length);
+        return abilities.length?abilities.map(ability=>`<div class="source-item"><span class="source-ability">${escapeHtml(ability.name)}</span>${ability.sources.map(source=>`<a class="source-link" href="${escapeHtml(normalizeWikiHref(source.href)||wikiUrl)}" target="_blank" rel="noopener">${escapeHtml(source.label)}</a>${source.requiredFavor?`<span class="favor-requirement">Requires ${escapeHtml(source.requiredFavor)} favor</span>`:''}`).join(' &middot; ')}</div>`).join(''):'<span class="no-value">&mdash;</span>';
+      };
+      const abilityKey=(r,ability)=>skill+'|'+r.level+'|'+ability.name;
+      const fromLeveling=ability=>ability.sources?.some(source=>source.label.toLowerCase()==='leveling');
+      const abilityObtained=(r,ability)=>fromLeveling(ability)?current()>=r.level:Boolean(obtained[abilityKey(r,ability)]);
+      const itemKey=(r,item)=>item.ability?abilityKey(r,item.ability):skill+'|'+r.level+'|reward|'+item.name;
+      const itemObtained=(r,item)=>item.reward?current()>=r.level:abilityObtained(r,item.ability);
+      const rowObtained=r=>trackedItems(r).length>0&&trackedItems(r).every(item=>itemObtained(r,item));
+      const insufficientFavor=r=>(r.abilities||[]).some(ability=>!abilityObtained(r,ability)&&(ability.sources||[]).some(source=>source.requiredFavor&&favorLevels.indexOf(trainerFavor(source))<favorLevels.indexOf(source.requiredFavor)));
+      const availableForPurchase=r=>(r.abilities||[]).some(ability=>purchaseState(r.level,ability.sources,abilityObtained(r,ability))==='available');
+      const obtainedBoxes=r=>trackedItems(r).length?trackedItems(r).map(item=>{
+        const id=itemKey(r,item),automatic=item.reward||fromLeveling(item.ability),checked=itemObtained(r,item);
+        return `<label class="obtained-item" title="${automatic?'Automatically updated from skill level':'Mark ability as obtained'}"><input class="obtained-box" type="checkbox" data-obtained-key="${escapeHtml(id)}" ${checked?'checked':''} ${automatic?'disabled':''} aria-label="${escapeHtml(item.name)} obtained"><span class="obtained-name">${escapeHtml(item.name)}</span></label>`;
+      }).join(''):'<span class="no-value">&mdash;</span>';
+      document.getElementById('milestones').innerHTML=`<table><thead><tr><th>Level</th><th>Level reward</th><th>Source</th><th>Obtained</th><th>Stat bonus</th><th>Total stat bonuses</th></tr></thead><tbody>${milestones.map(r=>`<tr class="milestone ${rowObtained(r)?'achieved':availableForPurchase(r)?'available':insufficientFavor(r)?'needs-favor':''}"><td><span class="level-pill">${r.level}</span>${rowObtained(r)?'<span class="status">Obtained</span>':''}</td><td>${rewards(r)}</td><td>${sources(r)}</td><td class="obtained-cell">${obtainedBoxes(r)}</td><td>${value(r.bonus)}</td><td>${value(r.totals)}</td></tr>`).join('')}</tbody></table>`;
+      document.querySelectorAll('#milestones .obtained-box:not(:disabled)').forEach(box=>box.onchange=()=>{
+        obtained[box.dataset.obtainedKey]=box.checked;
+        localStorage.setItem('gorgon-obtained',JSON.stringify(obtained));
+        renderMilestones();
+        renderChecklists();
+      });
+    }
+
+    function renderChecklists(){
+      const abilityItems=allLevels.flatMap(row=>(row.abilities||[]).map(ability=>({
+        kind:'ability',level:row.level,name:ability.name,sources:ability.sources||[],
+        key:skill+'|'+row.level+'|'+ability.name,
+        automatic:(ability.sources||[]).some(isLeveling)
+      })));
+      const recipeItems=recipes.map(recipe=>({
+        ...recipe,kind:'recipe',key:skill+'|recipe|'+recipe.level+'|'+recipe.name,
+        automatic:(recipe.sources||[]).some(isLeveling)
+      }));
+      const sourceHtml=item=>item.sources?.length?item.sources.map(source=>{
+        const link=source.href?`<a class="source-link" href="${escapeHtml(normalizeWikiHref(source.href))}" target="_blank" rel="noopener">${escapeHtml(source.label)}</a>`:escapeHtml(source.label);
+        return link+(source.requiredFavor?`<span class="favor-requirement">Requires ${escapeHtml(source.requiredFavor)} favor · You have ${escapeHtml(trainerFavor(source))}</span>`:'');
+      }).join('<br>'):'<span class="no-value">Source not listed</span>';
+      const itemChecked=item=>item.automatic?current()>=item.level:Boolean(obtained[item.key]);
+      const detailHtml=item=>item.kind==='recipe'
+        ?[item.ingredients&&`Ingredients: ${item.ingredients}`,item.results&&`Result: ${item.results}`,item.description].filter(Boolean).map(escapeHtml).join('\n')
+        :'Ability';
+      const render=(target,items,emptyText)=>{
+        if(!items.length){
+          document.getElementById(target).innerHTML=`<div class="empty">${escapeHtml(emptyText)}</div>`;
+          return;
+        }
+        document.getElementById(target).innerHTML=items.map(item=>{
+          const checked=itemChecked(item),stateClass=checked?'obtained':purchaseState(item.level,item.sources,checked);
+          const title=item.automatic?'Automatically updated from skill level':'Mark as obtained';
+          return `<div class="check-row ${stateClass}"><span class="level-pill">${item.level}</span><label title="${title}"><input class="obtained-box" type="checkbox" data-obtained-key="${escapeHtml(item.key)}" ${checked?'checked':''} ${item.automatic?'disabled':''}><span>${escapeHtml(item.name)}${checked?'<span class="check-badge">Obtained</span>':''}</span></label><div class="check-meta">${detailHtml(item)}</div><div class="check-source">${sourceHtml(item)}</div></div>`;
+        }).join('');
+        document.querySelectorAll(`#${target} .obtained-box:not(:disabled)`).forEach(box=>box.onchange=()=>{
+          obtained[box.dataset.obtainedKey]=box.checked;
+          localStorage.setItem('gorgon-obtained',JSON.stringify(obtained));
+          renderMilestones();
+          renderChecklists();
+        });
+      };
+      render('abilityChecklist',abilityItems,'No abilities are currently listed for this skill.');
+      render('recipeChecklist',recipeItems,'No recipe table is currently listed for this skill on the wiki.');
+    }
+
+    function renderTeleportSpots(){
+      if(skill!=='Teleportation')return;
+      const usedCount=teleportSpots.filter(spot=>teleportUsed[spot.id]).length;
+      document.getElementById('teleportSummary').textContent=`${usedCount} of ${teleportSpots.length} used`;
+      const zones=new Map();
+      for(const spot of teleportSpots){if(!zones.has(spot.zone))zones.set(spot.zone,[]);zones.get(spot.zone).push(spot);}
+      document.getElementById('teleportSpots').innerHTML=zones.size?[...zones.entries()].map(([zone,spots])=>{
+        const zoneUsed=spots.filter(spot=>teleportUsed[spot.id]).length;
+        const zoneHref='https://wiki.projectgorgon.com/index.php?title='+encodeURIComponent(zone.replaceAll(' ','_'));
+        return `<article class="teleport-zone"><header class="teleport-zone-head"><h3 class="teleport-zone-title"><a href="${zoneHref}" target="_blank" rel="noopener">${escapeHtml(zone)}</a></h3><span class="teleport-zone-count">${zoneUsed}/${spots.length} used</span></header>${spots.map(spot=>`<label class="teleport-row ${teleportUsed[spot.id]?'used':''}"><input class="teleport-check" type="checkbox" data-teleport-id="${escapeHtml(spot.id)}" ${teleportUsed[spot.id]?'checked':''}><span class="teleport-location">${escapeHtml(spot.location)}</span><span class="teleport-type">${escapeHtml(spot.type)}</span></label>`).join('')}</article>`;
+      }).join(''):'<div class="empty">No teleportation spots are currently listed.</div>';
+      document.querySelectorAll('.teleport-check').forEach(box=>box.onchange=()=>{
+        if(box.checked)teleportUsed[box.dataset.teleportId]=true;else delete teleportUsed[box.dataset.teleportId];
+        localStorage.setItem('gorgon-teleport-spots',JSON.stringify(teleportUsed));
+        renderTeleportSpots();
+      });
+    }
+
+    async function loadTeleportSpots(){
+      if(skill!=='Teleportation')return;
+      document.getElementById('teleportSection').hidden=false;
+      try{
+        const response=await fetch('teleport-spots.json',{cache:'no-store'});
+        if(!response.ok)throw new Error('Teleportation spot data unavailable');
+        teleportSpots=await response.json();
+        renderTeleportSpots();
+      }catch{
+        document.getElementById('teleportSpots').innerHTML=`<div class="empty">Teleportation spots could not be loaded.<br><a class="wiki-link" href="${wikiUrl}#Locations" target="_blank" rel="noopener">Check the wiki locations list ↗</a></div>`;
+      }
+    }
+
+    const escapeHtml=s=>String(s).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');
+    async function loadRewards(){
+      try{
+        const [detailResponse,recipeResponse]=await Promise.all([fetch('skill-details.json',{cache:'no-store'}),fetch('skill-recipes.json',{cache:'no-store'})]);
+        if(!detailResponse.ok)throw new Error('Local skill data unavailable');
+        const data=await detailResponse.json();
+        const recipeData=recipeResponse.ok?await recipeResponse.json():{};
+        allLevels=data[skill]||[];
+        recipes=recipeData[skill]||[];
+        milestones=allLevels.filter(row=>row.reward||row.abilities?.length||row.level%5===0);
+        if(!milestones.length)throw new Error('No level data');
+        renderTotalStats();
+        renderMilestones();
+        renderChecklists();
+      }catch(e){
+        document.getElementById('milestones').innerHTML=`<div class="empty">No level milestones or five-level stat checkpoints are currently available for this skill.<br><a class="wiki-link" href="${wikiUrl}" target="_blank" rel="noopener">Check the wiki article ↗</a></div>`;
+        renderChecklists();
+      }
+    }
+
+    document.getElementById('level').oninput=e=>{
+      state[key]=clamp(e.target.value);
+      localStorage.setItem('gorgon-ledger',JSON.stringify(state));
+      renderLevel();
+    };
+    renderLevel();
+    loadRewards();
+    loadTeleportSpots();
+  </script>
+</body>
+</html>

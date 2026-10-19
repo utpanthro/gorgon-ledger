@@ -1,0 +1,344 @@
+[
+  {
+    "id": "teleportation circle|anagoge island|south on the map, between dungeon and obelisk",
+    "zone": "Anagoge Island",
+    "location": "South on the map, between dungeon and obelisk",
+    "type": "Teleportation Circle"
+  },
+  {
+    "id": "mushroom circle|eltibule|southeast of sie antry's homestead. across the bridge.",
+    "zone": "Eltibule",
+    "location": "Southeast of Sie Antry's homestead. Across the bridge.",
+    "type": "Mushroom Circle"
+  },
+  {
+    "id": "teleportation circle|eltibule|antry farm",
+    "zone": "Eltibule",
+    "location": "Antry Farm",
+    "type": "Teleportation Circle"
+  },
+  {
+    "id": "teleportation circle|eltibule|eltibule keep (courtyard)",
+    "zone": "Eltibule",
+    "location": "Eltibule Keep (courtyard)",
+    "type": "Teleportation Circle"
+  },
+  {
+    "id": "teleportation circle|eltibule|hogan's keep (courtyard)",
+    "zone": "Eltibule",
+    "location": "Hogan's Keep (courtyard)",
+    "type": "Teleportation Circle"
+  },
+  {
+    "id": "teleportation circle|eltibule|one east of eltibule keep, high on the rocks next to the nearby lake.",
+    "zone": "Eltibule",
+    "location": "One east of Eltibule Keep, high on the rocks next to the nearby lake.",
+    "type": "Teleportation Circle"
+  },
+  {
+    "id": "teleportation circle|eltibule|one over the gnasher hill",
+    "zone": "Eltibule",
+    "location": "One over the Gnasher hill",
+    "type": "Teleportation Circle"
+  },
+  {
+    "id": "teleportation circle|eltibule|one underwater near waterfall",
+    "zone": "Eltibule",
+    "location": "One underwater near waterfall",
+    "type": "Teleportation Circle"
+  },
+  {
+    "id": "mushroom circle|fae realm|in the northwest in the fel-dasculan ruins",
+    "zone": "Fae Realm",
+    "location": "In the Northwest in the Fel-Dasculan Ruins",
+    "type": "Mushroom Circle"
+  },
+  {
+    "id": "mushroom circle|fae realm|in the southeast, just east of ogamboe.",
+    "zone": "Fae Realm",
+    "location": "In the Southeast, just east of Ogamboe.",
+    "type": "Mushroom Circle"
+  },
+  {
+    "id": "mushroom circle|gazluk|inside new prestonbule cave",
+    "zone": "Gazluk",
+    "location": "Inside New Prestonbule Cave",
+    "type": "Mushroom Circle"
+  },
+  {
+    "id": "mushroom circle|gazluk|main map near the center of the map, next to the yellow crystal formation with a single crystal.",
+    "zone": "Gazluk",
+    "location": "Main Map near the center of the map, next to the yellow crystal formation with a single crystal.",
+    "type": "Mushroom Circle"
+  },
+  {
+    "id": "mushroom circle|gazluk|near sem in the snowblood shadow cave",
+    "zone": "Gazluk",
+    "location": "Near Sem in the Snowblood Shadow Cave",
+    "type": "Mushroom Circle"
+  },
+  {
+    "id": "teleportation circle|gazluk|directly north of new prestonbule cave.",
+    "zone": "Gazluk",
+    "location": "Directly North of New Prestonbule Cave.",
+    "type": "Teleportation Circle"
+  },
+  {
+    "id": "teleportation circle|gazluk|just north-east of gazluk city.",
+    "zone": "Gazluk",
+    "location": "Just North-East of Gazluk City.",
+    "type": "Teleportation Circle"
+  },
+  {
+    "id": "teleportation circle|gazluk|just south of the northern-most abandoned camp.",
+    "zone": "Gazluk",
+    "location": "Just South of the Northern-most abandoned Camp.",
+    "type": "Teleportation Circle"
+  },
+  {
+    "id": "teleportation circle|gazluk|new prestonbule",
+    "zone": "Gazluk",
+    "location": "New Prestonbule",
+    "type": "Teleportation Circle"
+  },
+  {
+    "id": "teleportation circle|ilmari|amulna",
+    "zone": "Ilmari",
+    "location": "Amulna",
+    "type": "Teleportation Circle"
+  },
+  {
+    "id": "teleportation circle|ilmari|ruined village",
+    "zone": "Ilmari",
+    "location": "Ruined Village",
+    "type": "Teleportation Circle"
+  },
+  {
+    "id": "teleportation circle|kur|next to ratuk the thinker in the glaciers to the west.",
+    "zone": "Kur",
+    "location": "Next to Ratuk the Thinker in the glaciers to the west.",
+    "type": "Teleportation Circle"
+  },
+  {
+    "id": "teleportation circle|kur|north of the spawn point (eltibule portal), near the barn with syndra.",
+    "zone": "Kur",
+    "location": "North of the spawn point (Eltibule Portal), near the barn with Syndra.",
+    "type": "Teleportation Circle"
+  },
+  {
+    "id": "teleportation circle|kur|northern shore (east of wolf cave)",
+    "zone": "Kur",
+    "location": "Northern shore (east of Wolf Cave)",
+    "type": "Teleportation Circle"
+  },
+  {
+    "id": "teleportation circle|kur|northwest outpost",
+    "zone": "Kur",
+    "location": "Northwest outpost",
+    "type": "Teleportation Circle"
+  },
+  {
+    "id": "teleportation circle|kur|slightly southwest of wolf cave (northeast of the outpost), on top of the cliff.",
+    "zone": "Kur",
+    "location": "Slightly southwest of Wolf Cave (northeast of the Outpost), on top of the cliff.",
+    "type": "Teleportation Circle"
+  },
+  {
+    "id": "teleportation circle|myconian cave|near the entrance area.",
+    "zone": "Myconian Cave",
+    "location": "Near the entrance area.",
+    "type": "Teleportation Circle"
+  },
+  {
+    "id": "mushroom circle|povus|directly north from the city of povus, southeast from the murky tunnel",
+    "zone": "Povus",
+    "location": "Directly north from the City of Povus, southeast from the Murky Tunnel",
+    "type": "Mushroom Circle"
+  },
+  {
+    "id": "mushroom circle|povus|on a peninsula in the southwest",
+    "zone": "Povus",
+    "location": "On a peninsula in the southwest",
+    "type": "Mushroom Circle"
+  },
+  {
+    "id": "mushroom circle|povus|on an island, south of the orc camp",
+    "zone": "Povus",
+    "location": "On an island, south of the Orc Camp",
+    "type": "Mushroom Circle"
+  },
+  {
+    "id": "teleportation circle|povus|north-east of the city (on an island)",
+    "zone": "Povus",
+    "location": "North-East of the city (on an island)",
+    "type": "Teleportation Circle"
+  },
+  {
+    "id": "mushroom circle|rahu|found underwater near the path from the open plain to the city of rahu.",
+    "zone": "Rahu",
+    "location": "Found underwater near the path from the open plain to the City of Rahu.",
+    "type": "Mushroom Circle"
+  },
+  {
+    "id": "teleportation circle|rahu|center of rahu city (located in hostile area)",
+    "zone": "Rahu",
+    "location": "Center of Rahu City (located in hostile area)",
+    "type": "Teleportation Circle"
+  },
+  {
+    "id": "teleportation circle|rahu|north end of rahu city (near the exit in hostile area)",
+    "zone": "Rahu",
+    "location": "North end of Rahu City (near the exit in hostile area)",
+    "type": "Teleportation Circle"
+  },
+  {
+    "id": "teleportation circle|rahu|south-west part of rahu city (peaceful)",
+    "zone": "Rahu",
+    "location": "South-West part of Rahu City (peaceful)",
+    "type": "Teleportation Circle"
+  },
+  {
+    "id": "teleportation circle|red wing casino|near the work order boards",
+    "zone": "Red Wing Casino",
+    "location": "Near the work order boards",
+    "type": "Teleportation Circle"
+  },
+  {
+    "id": "mushroom circle|serbule|east of serbule keep",
+    "zone": "Serbule",
+    "location": "East of Serbule Keep",
+    "type": "Mushroom Circle"
+  },
+  {
+    "id": "teleportation circle|serbule|far south of serbule keep, on a wooded hill.",
+    "zone": "Serbule",
+    "location": "Far south of Serbule Keep, on a wooded hill.",
+    "type": "Teleportation Circle"
+  },
+  {
+    "id": "teleportation circle|serbule|inside the northern gate of serbule keep.",
+    "zone": "Serbule",
+    "location": "Inside the northern gate of Serbule Keep.",
+    "type": "Teleportation Circle"
+  },
+  {
+    "id": "teleportation circle|serbule|to the northeast, outside of borghild.",
+    "zone": "Serbule",
+    "location": "To the Northeast, outside of Borghild.",
+    "type": "Teleportation Circle"
+  },
+  {
+    "id": "mushroom circle|serbule hills|ne section of map - east of meditation pillar",
+    "zone": "Serbule Hills",
+    "location": "NE section of map - east of meditation pillar",
+    "type": "Mushroom Circle"
+  },
+  {
+    "id": "mushroom circle|serbule hills|sw section of map - in the \"horseshoe\" shaped hills, north of bloodmaw area",
+    "zone": "Serbule Hills",
+    "location": "SW section of map - in the \"horseshoe\" shaped hills, north of Bloodmaw area",
+    "type": "Mushroom Circle"
+  },
+  {
+    "id": "teleportation circle|serbule hills|behind inn",
+    "zone": "Serbule Hills",
+    "location": "Behind Inn",
+    "type": "Teleportation Circle"
+  },
+  {
+    "id": "teleportation circle|serbule hills|inside abandoned hunting lodge, south of inn",
+    "zone": "Serbule Hills",
+    "location": "Inside abandoned hunting lodge, south of inn",
+    "type": "Teleportation Circle"
+  },
+  {
+    "id": "teleportation circle|serbule hills|north east corner of the map",
+    "zone": "Serbule Hills",
+    "location": "North East corner of the map",
+    "type": "Teleportation Circle"
+  },
+  {
+    "id": "teleportation circle|serbule hills|south middle side of the map",
+    "zone": "Serbule Hills",
+    "location": "South middle side of the map",
+    "type": "Teleportation Circle"
+  },
+  {
+    "id": "mushroom circle|sun vale|near the druid area and the fairy tree.",
+    "zone": "Sun Vale",
+    "location": "Near the Druid area and the Fairy tree.",
+    "type": "Mushroom Circle"
+  },
+  {
+    "id": "teleportation circle|sun vale|another is north west of the gigantic tree. it will be visible from the ladder leading up the tree.",
+    "zone": "Sun Vale",
+    "location": "Another is north west of the gigantic tree. It will be visible from the ladder leading up the tree.",
+    "type": "Teleportation Circle"
+  },
+  {
+    "id": "teleportation circle|sun vale|fifth is in animal town.",
+    "zone": "Sun Vale",
+    "location": "Fifth is in animal town.",
+    "type": "Teleportation Circle"
+  },
+  {
+    "id": "teleportation circle|sun vale|fourth telepad is in the nw corner area",
+    "zone": "Sun Vale",
+    "location": "Fourth Telepad is in the NW corner area",
+    "type": "Teleportation Circle"
+  },
+  {
+    "id": "teleportation circle|sun vale|one is on one end of the beach (to your left from landing spot)",
+    "zone": "Sun Vale",
+    "location": "One is on one end of the beach (to your left from landing spot)",
+    "type": "Teleportation Circle"
+  },
+  {
+    "id": "teleportation circle|sun vale|sixth is in the ocean near fish bowl cavern",
+    "zone": "Sun Vale",
+    "location": "Sixth is in the ocean near Fish Bowl Cavern",
+    "type": "Teleportation Circle"
+  },
+  {
+    "id": "teleportation circle|sun vale|third one is at the north-east end of the zone near the altar that currently offers the druid skill.",
+    "zone": "Sun Vale",
+    "location": "Third one is at the north-east end of the zone near the altar that currently offers the Druid skill.",
+    "type": "Teleportation Circle"
+  },
+  {
+    "id": "mushroom circle|vidaria|northeast corner, southeast of the tower (in the mountains)",
+    "zone": "Vidaria",
+    "location": "Northeast corner, southeast of the tower (in the mountains)",
+    "type": "Mushroom Circle"
+  },
+  {
+    "id": "mushroom circle|vidaria|southwest map corner, past the farmsteads",
+    "zone": "Vidaria",
+    "location": "Southwest map corner, past the farmsteads",
+    "type": "Mushroom Circle"
+  },
+  {
+    "id": "teleportation circle|vidaria|center of the map along the east-west roadway",
+    "zone": "Vidaria",
+    "location": "Center of the map along the east-west roadway",
+    "type": "Teleportation Circle"
+  },
+  {
+    "id": "teleportation circle|vidaria|northeast of the map, base of the mountains",
+    "zone": "Vidaria",
+    "location": "Northeast of the map, base of the mountains",
+    "type": "Teleportation Circle"
+  },
+  {
+    "id": "teleportation circle|vidaria|northwest military camp",
+    "zone": "Vidaria",
+    "location": "Northwest military camp",
+    "type": "Teleportation Circle"
+  },
+  {
+    "id": "teleportation circle|vidaria|southeast of the map next to the large blue mushroom",
+    "zone": "Vidaria",
+    "location": "Southeast of the map next to the large blue mushroom",
+    "type": "Teleportation Circle"
+  }
+]

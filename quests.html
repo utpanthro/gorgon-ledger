@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <meta name="theme-color" content="#a44129" />
+  <meta name="description" content="A local Project Gorgon quest checklist organized by zone." />
+  <title>Quest Ledger · Gorgon Ledger</title>
+  <script src="storage.js"></script>
+  <style>
+    :root{--ink:#24231f;--muted:#77736a;--paper:#f2eee4;--card:#fbf8f0;--line:#d8d0bf;--rust:#a44129;--rust-dark:#71301f;--moss:#566b50;--shadow:0 16px 36px rgba(40,32,23,.09)}
+    *{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;min-height:100vh}button,input{font:inherit}.shell{display:grid;grid-template-columns:280px 1fr;min-height:100vh}aside{padding:34px 24px;border-right:1px solid var(--line);background:#e9e2d4;position:sticky;top:0;height:100vh;display:flex;flex-direction:column}.brand{display:flex;gap:12px;align-items:center;margin-bottom:26px;text-decoration:none;color:inherit}.mark{width:42px;height:42px;display:grid;place-items:center;transform:rotate(45deg);background:var(--rust)}.mark span{transform:rotate(-45deg);color:#fff;font-family:Georgia,serif;font-size:22px}.brand strong{display:block;font-family:Georgia,serif;font-size:20px}.brand small{color:var(--muted);letter-spacing:.1em;text-transform:uppercase;font-size:10px}.ledger-switch{display:grid;grid-template-columns:repeat(3,1fr);gap:5px;margin-bottom:30px}.ledger-switch a{padding:9px 6px;text-align:center;text-decoration:none;color:var(--muted);border:1px solid var(--line);border-radius:5px;font-size:11px}.ledger-switch a.active{background:var(--rust);border-color:var(--rust);color:#fff}.nav-label{color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.14em;margin:0 10px 10px}.nav{display:grid;gap:4px;overflow:auto;padding-right:4px}.nav button{border:0;background:transparent;padding:8px 10px;border-radius:5px;color:#5e5b54;text-align:left;display:flex;justify-content:space-between;gap:8px;cursor:pointer}.nav button.active{background:var(--card);color:var(--rust-dark);box-shadow:0 2px 8px rgba(40,32,23,.05)}.count{font-size:10px;color:var(--muted)}.aside-foot{margin-top:auto;border-top:1px solid var(--line);padding-top:18px;color:var(--muted);font-size:12px;line-height:1.5}.aside-foot strong{color:var(--moss)}
+    main{padding:38px clamp(28px,5vw,78px) 80px;max-width:1280px;width:100%;margin:0 auto}.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:58px}.eyebrow{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--rust);font-weight:700}.save-state{color:var(--muted);font-size:12px}.save-state:before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--moss);margin-right:7px}.hero{display:grid;grid-template-columns:1fr 230px;gap:48px;align-items:end;margin-bottom:42px}.hero h1{font-family:Georgia,serif;font-weight:400;font-size:clamp(46px,7vw,76px);line-height:.98;margin:8px 0 18px;letter-spacing:-.04em}.hero p{color:var(--muted);max-width:650px;line-height:1.7;margin:0}.stat{border-left:1px solid var(--line);padding-left:28px}.stat-num{font-family:Georgia,serif;font-size:44px}.stat-label{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}.toolbar{display:flex;gap:12px;margin:34px 0 24px}.search{flex:1;position:relative}.search input{width:100%;background:var(--card);border:1px solid var(--line);padding:13px 16px 13px 42px;border-radius:7px;outline:none}.search input:focus{border-color:var(--rust)}.search span{position:absolute;left:15px;top:11px;color:var(--muted);font-size:18px}.filter{border:1px solid var(--line);background:var(--card);border-radius:7px;padding:0 16px;color:var(--ink);cursor:pointer}
+    .groups{display:grid;gap:30px}.zone-head{display:flex;justify-content:space-between;align-items:end;border-bottom:1px solid var(--line);padding-bottom:9px;margin-bottom:10px}.zone-title{font-family:Georgia,serif;font-size:26px;font-weight:400;margin:0}.zone-level{font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted)}.quests{display:grid;gap:8px}.quest{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:14px;align-items:start;background:var(--card);border:1px solid var(--line);border-radius:7px;padding:14px 16px}.quest.done{opacity:.47;background:#e8e2d7}.quest-check{width:18px;height:18px;margin:3px 0 0;accent-color:var(--moss);cursor:pointer}.quest-title{color:var(--ink);font-family:Georgia,serif;font-size:17px;text-decoration:none}.quest.done .quest-title{text-decoration:line-through}.quest-meta{display:flex;flex-wrap:wrap;gap:5px 12px;margin-top:5px;font-size:11px;color:var(--muted)}.npc-link{color:var(--rust-dark);text-decoration:none}.npc-link:hover,.quest-title:hover{color:var(--rust)}.favor{white-space:nowrap;border:1px solid var(--line);border-radius:20px;padding:4px 8px;font-size:10px;text-transform:uppercase;letter-spacing:.07em;color:var(--muted)}.empty{padding:52px;text-align:center;color:var(--muted);border:1px dashed var(--line)}
+    @media(max-width:900px){.shell{grid-template-columns:1fr}aside{position:static;height:auto;border-right:0;border-bottom:1px solid var(--line);padding:20px}.brand{margin-bottom:18px}.ledger-switch{max-width:360px;margin-bottom:18px}.nav-label,.aside-foot{display:none}.nav{display:flex}.nav button{min-width:max-content}main{padding:30px 20px 60px}.top{margin-bottom:35px}.hero{grid-template-columns:1fr}.stat{border-left:0;border-top:1px solid var(--line);padding:20px 0 0}}@media(max-width:580px){.toolbar{flex-direction:column}.filter{height:44px}.quest{grid-template-columns:auto 1fr}.favor{grid-column:2;justify-self:start}.hero h1{font-size:48px}}
+    .ledger-switch{grid-template-columns:repeat(4,1fr)}
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <aside>
+      <a class="brand" href="index.html"><div class="mark"><span>G</span></div><div><strong>Gorgon Ledger</strong><small>Adventurer's record</small></div></a>
+      <div class="ledger-switch"><a href="index.html">Skills</a><a href="npcs.html">NPCs</a><a class="active" href="quests.html">Quests</a><a href="food.html">Food</a></div>
+      <div class="nav-label">Zones</div><nav class="nav" id="nav"></nav>
+      <div class="aside-foot"><strong>Shared progress</strong><br>Checks made here also update each NPC’s quest page.</div>
+    </aside>
+    <main>
+      <div class="top"><span class="eyebrow">Project Gorgon companion</span><span class="save-state">Quest progress saved</span></div>
+      <section class="hero"><div><h1>Every errand,<br>one ledger.</h1><p>Search every NPC quest, work through Alharth in zone order, and keep one completion record everywhere.</p></div><div class="stat"><div class="stat-num"><span id="complete">0</span>/<span id="total">0</span></div><div class="stat-label">Quests completed</div></div></section>
+      <div class="toolbar"><div class="search"><span>⌕</span><input id="search" type="search" placeholder="Search quests, NPCs, or objectives…" aria-label="Search quests"></div><button class="filter" id="hideComplete">Hide completed</button></div>
+      <section class="groups" id="groups"><div class="empty">Loading quest ledger…</div></section>
+    </main>
+  </div>
+  <script>
+    const legacyWikiPrefix='https://wiki.projectgorgon.com/wiki/',wikiPrefix='https://wiki.projectgorgon.com/index.php?title=';
+    const migrateQuestState=value=>{let changed=false;for(const oldKey of Object.keys(value)){if(!oldKey.includes('|'+legacyWikiPrefix))continue;const newKey=oldKey.replace('|'+legacyWikiPrefix,'|'+wikiPrefix);if(!(newKey in value))value[newKey]=value[oldKey];delete value[oldKey];changed=true;}if(changed)localStorage.setItem('gorgon-quests',JSON.stringify(value));return value;};
+    let questData={},npcZones={},state=migrateQuestState(JSON.parse(localStorage.getItem('gorgon-quests')||'{}')),query='',activeZone='All',hideComplete=false;
+    const escapeHtml=value=>String(value).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');
+    const key=item=>item.npc+'|'+item.href;
+    const done=item=>Boolean(state[key(item)]);
+    const allItems=()=>Object.entries(questData).flatMap(([npc,quests])=>quests.map(quest=>({...quest,npc,zone:npcZones[npc]?.zone||'Unassigned',zoneLevel:npcZones[npc]?.level??999})));
+    const zoneLabel=level=>level===999?'Unassigned':level===0?'Starting zone':'Recommended level '+level+'+';
+    function renderNav(items){
+      const zones=[...new Map(items.slice().sort((a,b)=>a.zoneLevel-b.zoneLevel||a.zone.localeCompare(b.zone)).map(item=>[item.zone,{zone:item.zone,level:item.zoneLevel}])).values()];
+      document.getElementById('nav').innerHTML=`<button class="${activeZone==='All'?'active':''}" data-zone="All"><span>All zones</span><span class="count">${items.length}</span></button>`+zones.map(item=>`<button class="${activeZone===item.zone?'active':''}" data-zone="${escapeHtml(item.zone)}"><span>${escapeHtml(item.zone)}</span><span class="count">${items.filter(quest=>quest.zone===item.zone).length}</span></button>`).join('');
+      document.querySelectorAll('[data-zone]').forEach(button=>button.onclick=()=>{activeZone=button.dataset.zone;render();});
+    }
+    function render(){
+      const items=allItems();
+      renderNav(items);
+      document.getElementById('complete').textContent=items.filter(done).length;
+      document.getElementById('total').textContent=items.length;
+      const needle=query.toLowerCase(),visible=items.filter(item=>(activeZone==='All'||item.zone===activeZone)&&(!hideComplete||!done(item))&&`${item.name} ${item.npc} ${(item.requirements||[]).join(' ')}`.toLowerCase().includes(needle));
+      const groups=new Map();
+      for(const item of visible){if(!groups.has(item.zone))groups.set(item.zone,{level:item.zoneLevel,items:[]});groups.get(item.zone).items.push(item);}
+      const ordered=[...groups.entries()].sort((a,b)=>a[1].level-b[1].level||a[0].localeCompare(b[0]));
+      document.getElementById('groups').innerHTML=ordered.length?ordered.map(([zone,group])=>`<section><header class="zone-head"><h2 class="zone-title">${escapeHtml(zone)}</h2><span class="zone-level">${zoneLabel(group.level)}</span></header><div class="quests">${group.items.sort((a,b)=>a.npc.localeCompare(b.npc)||a.name.localeCompare(b.name)).map(item=>`<article class="quest ${done(item)?'done':''}" data-key="${escapeHtml(key(item))}"><input class="quest-check" type="checkbox" ${done(item)?'checked':''} aria-label="${escapeHtml(item.name)} complete"><div><a class="quest-title" href="${escapeHtml(item.href)}" target="_blank" rel="noopener">${escapeHtml(item.name)}</a><div class="quest-meta"><span>From <a class="npc-link" href="npc.html?name=${encodeURIComponent(item.npc)}">${escapeHtml(item.npc)}</a></span>${item.requirements?.length?`<span>${item.requirements.length} objective${item.requirements.length===1?'':'s'}</span>`:''}${item.guild?'<span>Guild quest</span>':''}</div></div><span class="favor">${item.favor?escapeHtml(item.favor)+' favor':'No favor listed'}</span></article>`).join('')}</div></section>`).join(''):'<div class="empty">No quests match this view.</div>';
+      document.querySelectorAll('.quest-check').forEach(box=>box.onchange=()=>{const id=box.closest('.quest').dataset.key;if(box.checked)state[id]=true;else delete state[id];localStorage.setItem('gorgon-quests',JSON.stringify(state));render();});
+    }
+    document.getElementById('search').oninput=event=>{query=event.target.value.trim();render();};
+    document.getElementById('hideComplete').onclick=event=>{hideComplete=!hideComplete;event.target.textContent=hideComplete?'Show completed':'Hide completed';render();};
+    window.addEventListener('storage',event=>{if(event.key==='gorgon-quests'){state=migrateQuestState(JSON.parse(event.newValue||'{}'));render();}});
+    Promise.all([fetch('npc-quests.json',{cache:'no-store'}).then(response=>response.json()),fetch('npc-zones.json',{cache:'no-store'}).then(response=>response.json())]).then(([quests,zones])=>{questData=quests;npcZones=zones;render();}).catch(()=>{document.getElementById('groups').innerHTML='<div class="empty">Quest data could not be loaded.</div>';});
+  </script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <meta name="theme-color" content="#a44129" />
+  <meta name="description" content="Project Gorgon NPC quest tracker." />
+  <title>NPC Quests · Gorgon Ledger</title>
+  <script src="storage.js"></script>
+  <style>
+    :root{--ink:#24231f;--muted:#77736a;--paper:#f2eee4;--card:#fbf8f0;--line:#d8d0bf;--rust:#a44129;--rust-dark:#71301f;--moss:#566b50;--orange:#e8a273;--shadow:0 16px 36px rgba(40,32,23,.09)}
+    *{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;min-height:100vh}button,select,input{font:inherit}.shell{display:grid;grid-template-columns:280px 1fr;min-height:100vh}aside{padding:34px 24px;border-right:1px solid var(--line);background:#e9e2d4;position:sticky;top:0;height:100vh;display:flex;flex-direction:column}.brand{display:flex;gap:12px;align-items:center;margin-bottom:30px;text-decoration:none;color:inherit}.mark{width:42px;height:42px;display:grid;place-items:center;transform:rotate(45deg);background:var(--rust)}.mark span{transform:rotate(-45deg);color:#fff;font-family:Georgia,serif;font-size:22px}.brand strong{display:block;font-family:Georgia,serif;font-size:20px}.brand small{color:var(--muted);letter-spacing:.1em;text-transform:uppercase;font-size:10px}.back{display:block;text-decoration:none;color:var(--rust-dark);background:var(--card);border:1px solid var(--line);border-radius:6px;padding:11px 13px;margin-bottom:28px;font-size:13px}.side-label{font-size:10px;text-transform:uppercase;letter-spacing:.14em;color:var(--muted);margin-bottom:8px}.social{width:100%;background:var(--card);border:1px solid var(--line);border-radius:6px;padding:11px;color:var(--ink)}.side-help{font-size:11px;color:var(--muted);line-height:1.5;margin-top:9px}.aside-foot{margin-top:auto;color:var(--muted);font-size:12px;line-height:1.5;border-top:1px solid var(--line);padding-top:18px}
+    main{padding:38px clamp(28px,6vw,90px) 80px;max-width:1120px;width:100%;margin:0 auto}.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:62px}.eyebrow{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--rust);font-weight:700}.wiki-link{color:var(--rust-dark);text-decoration:none;font-size:13px;border-bottom:1px solid var(--rust);padding-bottom:2px}.hero{display:grid;grid-template-columns:1fr 170px;gap:38px;align-items:end;margin-bottom:44px}.hero h1{font-family:Georgia,serif;font-weight:400;font-size:clamp(42px,7vw,72px);line-height:1;margin:0 0 15px;letter-spacing:-.04em}.hero p{color:var(--muted);line-height:1.7;margin:0;max-width:640px}.progress-card{background:var(--card);border:1px solid var(--line);border-radius:9px;padding:20px;box-shadow:var(--shadow)}.progress-number{font-family:Georgia,serif;font-size:38px}.progress-label{font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-top:4px}.toolbar{display:flex;justify-content:space-between;align-items:end;gap:18px;margin-bottom:16px}.toolbar h2{font-family:Georgia,serif;font-size:28px;font-weight:400;margin:0}.filter{border:1px solid var(--line);background:transparent;border-radius:6px;padding:9px 12px;color:var(--rust-dark);cursor:pointer}.quest-groups{display:grid;gap:34px}.group-title{font-size:11px;text-transform:uppercase;letter-spacing:.15em;color:var(--muted);margin:0 0 10px}.quests{display:grid;gap:10px}.quest{display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:start;background:var(--card);border:1px solid var(--line);border-radius:8px;padding:17px 18px;box-shadow:0 5px 16px rgba(40,32,23,.04)}.quest.locked{background:var(--orange);border-color:#d58b5b}.quest.done{opacity:.48;background:#e8e2d7}.quest-check{width:19px;height:19px;margin:3px 0 0;accent-color:var(--moss);cursor:pointer}.quest-title{color:var(--ink);font-family:Georgia,serif;font-size:19px;text-decoration:none}.quest.done .quest-title{text-decoration:line-through}.requirements{margin:9px 0 0;padding-left:18px;color:var(--muted);font-size:12px;line-height:1.6}.favor{white-space:nowrap;font-size:10px;text-transform:uppercase;letter-spacing:.09em;border:1px solid var(--line);border-radius:20px;padding:5px 8px;color:var(--muted)}.locked .favor{border-color:#8b4b2d;color:#532c1e;font-weight:700}.empty{padding:50px 25px;text-align:center;color:var(--muted);background:var(--card);border:1px solid var(--line);border-radius:9px}.hidden{display:none!important}
+    @media(max-width:760px){.shell{grid-template-columns:1fr}aside{position:static;height:auto;border-right:0;border-bottom:1px solid var(--line);padding:20px}.brand{margin-bottom:18px}.back{display:inline-block;margin-bottom:18px}.aside-foot{display:none}main{padding:30px 20px 60px}.top{margin-bottom:42px}.hero{grid-template-columns:1fr}.progress-card{width:170px}.quest{grid-template-columns:auto 1fr}.favor{grid-column:2;justify-self:start}.toolbar{align-items:start;flex-direction:column}}
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <aside>
+      <a class="brand" href="index.html"><div class="mark"><span>G</span></div><div><strong>Gorgon Ledger</strong><small>Adventurer's record</small></div></a>
+      <a class="back" href="npcs.html">← Back to NPC ledger</a>
+      <div id="relationshipPanel"><div class="side-label">Current relationship</div>
+      <select class="social" id="relationship" aria-label="Current relationship"></select>
+      <div class="side-help">Changing this also updates the NPC ledger and quest availability.</div></div>
+      <div class="aside-foot">Quest progress is written to the local save file.</div>
+    </aside>
+    <main>
+      <div class="top"><span class="eyebrow">NPC quest tracker</span><a class="wiki-link" id="wiki" target="_blank" rel="noopener">Open main wiki article ↗</a></div>
+      <section class="hero"><div><h1 id="name">NPC</h1><p>Track favors, errands, and guild work without losing the thread.</p></div><div class="progress-card"><div class="progress-number"><span id="complete">0</span>/<span id="total">0</span></div><div class="progress-label">Quests complete</div></div></section>
+      <div class="toolbar"><h2>Quest ledger</h2><button class="filter" id="hideComplete">Hide completed</button></div>
+      <section class="quest-groups" id="questGroups"><div class="empty">Loading quests…</div></section>
+    </main>
+  </div>
+  <script>
+    const params=new URLSearchParams(location.search),npc=params.get('name')||'Unknown NPC';
+    const questOnlyNpc=npc==='Oritania';
+    const favorLevels=['Despised','Hated','Disliked','Tolerated','Neutral','Comfortable','Friends','Close Friends','Best Friends','Like Family','Soul Mates'];
+    const legacyWikiPrefix='https://wiki.projectgorgon.com/wiki/',wikiPrefix='https://wiki.projectgorgon.com/index.php?title=';
+    const migrateQuestState=state=>{let changed=false;for(const oldKey of Object.keys(state)){if(!oldKey.includes('|'+legacyWikiPrefix))continue;const newKey=oldKey.replace('|'+legacyWikiPrefix,'|'+wikiPrefix);if(!(newKey in state))state[newKey]=state[oldKey];delete state[oldKey];changed=true;}if(changed)localStorage.setItem('gorgon-quests',JSON.stringify(state));return state;};
+    let socialState=JSON.parse(localStorage.getItem('gorgon-social')||'{}'),questState=migrateQuestState(JSON.parse(localStorage.getItem('gorgon-quests')||'{}')),quests=[],hideComplete=false;
+    const wikiUrl='https://wiki.projectgorgon.com/index.php?title='+encodeURIComponent(npc.replaceAll(' ','_'));
+    const relationship=()=>socialState[npc]||'Neutral';
+    const questKey=quest=>npc+'|'+quest.href;
+    const isDone=quest=>Boolean(questState[questKey(quest)]);
+    const isLocked=quest=>quest.favor&&favorLevels.indexOf(relationship())<favorLevels.indexOf(quest.favor);
+    const escapeHtml=value=>String(value).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');
+    document.title=npc+' quests · Gorgon Ledger';
+    document.getElementById('name').textContent=npc;
+    document.getElementById('wiki').href=wikiUrl;
+    document.getElementById('relationship').innerHTML=favorLevels.map(level=>`<option ${level===relationship()?'selected':''}>${level}</option>`).join('');
+    if(questOnlyNpc)document.getElementById('relationshipPanel').innerHTML='<div class="side-label">NPC type</div><div class="side-help">Quest giver · no favor relationship</div>';
+
+    function questCard(quest){
+      const requirements=quest.requirements?.length?`<ul class="requirements">${quest.requirements.map(item=>`<li>${escapeHtml(item)}</li>`).join('')}</ul>`:'';
+      return `<article class="quest ${isDone(quest)?'done':''} ${isLocked(quest)?'locked':''}" data-quest="${escapeHtml(questKey(quest))}"><input class="quest-check" type="checkbox" ${isDone(quest)?'checked':''} aria-label="${escapeHtml(quest.name)} complete"><div><a class="quest-title" href="${escapeHtml(quest.href)}" target="_blank" rel="noopener">${escapeHtml(quest.name)}</a>${requirements}</div><span class="favor">${quest.favor?escapeHtml(quest.favor)+' favor':'No favor listed'}</span></article>`;
+    }
+    function render(){
+      const visible=quests.filter(quest=>!hideComplete||!isDone(quest)),regular=visible.filter(quest=>!quest.guild),guild=visible.filter(quest=>quest.guild);
+      document.getElementById('complete').textContent=quests.filter(isDone).length;
+      document.getElementById('total').textContent=quests.length;
+      const groups=[];
+      if(regular.length)groups.push(`<section><h3 class="group-title">NPC quests</h3><div class="quests">${regular.map(questCard).join('')}</div></section>`);
+      if(guild.length)groups.push(`<section><h3 class="group-title">Guild quests</h3><div class="quests">${guild.map(questCard).join('')}</div></section>`);
+      document.getElementById('questGroups').innerHTML=groups.length?groups.join(''):`<div class="empty">${quests.length?'All visible quests are complete.':'No quests are currently listed for this NPC on the wiki.'}<br><br><a class="wiki-link" href="${wikiUrl}" target="_blank" rel="noopener">Check the wiki article ↗</a></div>`;
+      document.querySelectorAll('.quest-check').forEach(box=>box.onchange=()=>{
+        const key=box.closest('.quest').dataset.quest;
+        if(box.checked)questState[key]=true;else delete questState[key];
+        localStorage.setItem('gorgon-quests',JSON.stringify(questState));
+        render();
+      });
+    }
+    if(!questOnlyNpc)document.getElementById('relationship').onchange=event=>{
+      if(event.target.value==='Neutral')delete socialState[npc];else socialState[npc]=event.target.value;
+      localStorage.setItem('gorgon-social',JSON.stringify(socialState));
+      render();
+    };
+    document.getElementById('hideComplete').onclick=event=>{hideComplete=!hideComplete;event.target.textContent=hideComplete?'Show completed':'Hide completed';render();};
+    fetch('npc-quests.json',{cache:'no-store'}).then(response=>response.json()).then(data=>{quests=data[npc]||[];render();}).catch(()=>{quests=[];render();});
+  </script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <meta name="theme-color" content="#a44129" />
+  <meta name="description" content="Track Project Gorgon foods and Gourmand requirements." />
+  <title>Food · Gorgon Ledger</title>
+  <script src="storage.js"></script>
+  <style>
+    :root{--ink:#24231f;--muted:#77736a;--paper:#f2eee4;--card:#fbf8f0;--line:#d8d0bf;--rust:#a44129;--rust-dark:#71301f;--moss:#566b50;--ready:#dce8cf;--shadow:0 16px 36px rgba(40,32,23,.09)}
+    *{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;min-height:100vh}button,input{font:inherit}.shell{display:grid;grid-template-columns:280px 1fr;min-height:100vh}aside{padding:34px 24px;border-right:1px solid var(--line);background:#e9e2d4;position:sticky;top:0;height:100vh;display:flex;flex-direction:column}.brand{display:flex;gap:12px;align-items:center;margin-bottom:26px;text-decoration:none;color:inherit}.mark{width:42px;height:42px;display:grid;place-items:center;transform:rotate(45deg);background:var(--rust)}.mark span{transform:rotate(-45deg);color:#fff;font-family:Georgia,serif;font-size:22px}.brand strong{display:block;font-family:Georgia,serif;font-size:20px}.brand small{color:var(--muted);letter-spacing:.1em;text-transform:uppercase;font-size:10px}.ledger-switch{display:grid;grid-template-columns:repeat(4,1fr);gap:5px;margin-bottom:30px}.ledger-switch a{padding:9px 4px;text-align:center;text-decoration:none;color:var(--muted);border:1px solid var(--line);border-radius:5px;font-size:10px}.ledger-switch a.active{background:var(--rust);border-color:var(--rust);color:#fff}.side-label{font-size:10px;text-transform:uppercase;letter-spacing:.14em;color:var(--muted);margin-bottom:8px}.level-box{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:18px}.level-row{display:flex;align-items:center;gap:8px}.level-input{width:82px;border:1px solid #aaa292;border-radius:5px;background:#fff;padding:8px;text-align:right;font-family:Georgia,serif;font-size:24px;outline:none}.level-input:focus{border-color:var(--rust);box-shadow:0 0 0 2px rgba(164,65,41,.1)}.level-total{color:var(--muted)}.level-help{font-size:11px;color:var(--muted);line-height:1.5;margin-top:9px}.filters{display:grid;gap:5px;margin-top:22px}.filters button{border:0;background:transparent;color:#5e5b54;border-radius:5px;padding:9px 10px;text-align:left;display:flex;justify-content:space-between;cursor:pointer}.filters button.active{background:var(--card);color:var(--rust-dark);box-shadow:0 2px 8px rgba(40,32,23,.05)}.count{font-size:10px;color:var(--muted)}.aside-foot{margin-top:auto;border-top:1px solid var(--line);padding-top:18px;color:var(--muted);font-size:12px;line-height:1.5}.aside-foot strong{color:var(--moss)}
+    main{padding:38px clamp(28px,5vw,78px) 80px;max-width:1500px;width:100%;margin:0 auto}.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:58px}.eyebrow{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--rust);font-weight:700}.wiki-link{color:var(--rust-dark);text-decoration:none;font-size:13px;border-bottom:1px solid var(--rust);padding-bottom:2px}.hero{display:grid;grid-template-columns:1fr 260px;gap:50px;align-items:end;margin-bottom:42px}.hero h1{font-family:Georgia,serif;font-weight:400;font-size:clamp(42px,6vw,72px);line-height:.98;margin:8px 0 18px;letter-spacing:-.04em}.hero p{color:var(--muted);max-width:650px;line-height:1.7;margin:0}.stat{border-left:1px solid var(--line);padding-left:30px}.stat-num{font-family:Georgia,serif;font-size:46px}.stat-label{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}.toolbar{display:flex;gap:12px;margin:34px 0 24px}.search{flex:1;position:relative}.search input{width:100%;background:var(--card);border:1px solid var(--line);padding:13px 16px 13px 42px;border-radius:7px;outline:none}.search input:focus{border-color:var(--rust)}.search span{position:absolute;left:15px;top:11px;color:var(--muted);font-size:18px}.filter{border:1px solid var(--line);background:var(--card);border-radius:7px;padding:0 16px;color:var(--ink);cursor:pointer}.legend{display:flex;gap:18px;align-items:center;color:var(--muted);font-size:11px;margin:-10px 0 20px}.swatch{width:10px;height:10px;background:var(--ready);border:1px solid rgba(0,0,0,.08);display:inline-block;margin-right:6px;vertical-align:-1px}.groups{display:grid;gap:20px}.group{background:var(--card);border:1px solid var(--line);border-radius:9px;box-shadow:var(--shadow);overflow:hidden}.group-head{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;background:#e9e2d4}.group-title{font-family:Georgia,serif;font-weight:400;font-size:22px;margin:0}.group-meta{font-size:11px;color:var(--muted)}.food-head,.food{display:grid;grid-template-columns:34px minmax(180px,1.25fr) 100px 90px minmax(120px,.65fr) minmax(240px,1.35fr);gap:12px;align-items:start}.food-head{padding:10px 18px;color:var(--muted);font-size:9px;text-transform:uppercase;letter-spacing:.1em}.food{padding:13px 18px;border-top:1px solid #e7e1d5;transition:background .15s}.food.can-eat{background:var(--ready)}.food.eaten{background:#eee9df;color:var(--muted)}.food-check{width:18px;height:18px;margin:1px 0 0;accent-color:var(--moss);cursor:pointer}.food-name{color:var(--ink);text-decoration:none;font-weight:600;line-height:1.4}.food-name:hover{color:var(--rust);text-decoration:underline;text-underline-offset:3px}.food.eaten .food-name{color:var(--muted);text-decoration:line-through}.pill{display:inline-flex;width:max-content;border:1px solid var(--line);border-radius:20px;padding:4px 8px;font-size:11px;background:rgba(255,255,255,.45)}.recipe,.acquisition{font-size:11px;color:var(--muted);line-height:1.45}.acquisition{display:grid;gap:4px}.acquisition strong{color:var(--ink);font-weight:600}.acquisition a{color:var(--rust-dark);text-decoration:none;border-bottom:1px solid rgba(113,48,31,.3)}.acquisition .unknown{font-style:italic}.food.eaten .acquisition strong{color:var(--muted)}.empty,.loading{padding:55px 25px;text-align:center;color:var(--muted);border:1px dashed var(--line)}
+    @media(max-width:900px){.shell{grid-template-columns:1fr}aside{position:static;height:auto;border-right:0;border-bottom:1px solid var(--line);padding:20px}.brand{margin-bottom:18px}.ledger-switch{max-width:410px;margin-bottom:18px}.side-label,.aside-foot{display:none}.level-box{max-width:260px}.filters{display:flex;overflow:auto;margin-top:14px}.filters button{min-width:max-content}main{padding:30px 20px 60px}.top{margin-bottom:35px}.hero{grid-template-columns:1fr}.stat{border-left:0;border-top:1px solid var(--line);padding:20px 0 0}.food-head{display:none}.food{grid-template-columns:28px 1fr auto}.food .food-type{grid-column:2}.food .food-level{grid-column:3;grid-row:1}.food .recipe,.food .acquisition{grid-column:2/4}.legend{flex-wrap:wrap}}@media(max-width:580px){.toolbar{flex-direction:column}.filter{height:44px}.hero h1{font-size:48px}.ledger-switch a{font-size:9px}}
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <aside>
+      <a class="brand" href="index.html"><div class="mark"><span>G</span></div><div><strong>Gorgon Ledger</strong><small>Adventurer's record</small></div></a>
+      <div class="ledger-switch"><a href="index.html">Skills</a><a href="npcs.html">NPCs</a><a href="quests.html">Quests</a><a class="active" href="food.html">Food</a></div>
+      <div class="side-label">Current Gourmand level</div>
+      <div class="level-box"><div class="level-row"><input class="level-input" id="gourmandLevel" type="number" min="0" max="125" step="1" inputmode="numeric" aria-label="Current Gourmand level"><span class="level-total">/ 125</span></div><div class="level-help">This also updates Gourmand in the Skills ledger.</div></div>
+      <div class="filters" id="filters"></div>
+      <div class="aside-foot"><strong>Saved to this computer</strong><br>Your food history is written to a local save file.</div>
+    </aside>
+    <main>
+      <div class="top"><span class="eyebrow">Project Gorgon companion</span><a class="wiki-link" href="https://wiki.projectgorgon.com/index.php?title=Gourmand%2FEdibles" target="_blank" rel="noopener">Open edible list ↗</a></div>
+      <section class="hero"><div><h1>Every flavor,<br>fondly cataloged.</h1><p>Track every edible in Alharth, work upward by Gourmand requirement, and spot the foods your current skill level lets you eat.</p></div><div class="stat"><div class="stat-num"><span id="eatenCount">0</span>/<span id="totalCount">0</span></div><div class="stat-label">Foods tasted</div></div></section>
+      <div class="toolbar"><div class="search"><span>⌕</span><input id="search" type="search" placeholder="Search foods or recipe skills…" aria-label="Search foods"></div><button class="filter" id="hideEaten">Hide eaten</button></div>
+      <div class="legend"><span><i class="swatch"></i>Available at your Gourmand level</span><span>Sorted by required level, lowest first</span></div>
+      <section class="groups" id="groups"><div class="loading">Loading the edible ledger…</div></section>
+    </main>
+  </div>
+  <script>
+    const gourmandKey='other-21';
+    const clamp=value=>Math.max(0,Math.min(125,Number(value)||0));
+    const escapeHtml=value=>String(value).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');
+    let skillState=JSON.parse(localStorage.getItem('gorgon-ledger')||'{}');
+    Object.keys(skillState).forEach(key=>{if(typeof skillState[key]==='boolean')skillState[key]=skillState[key]?100:0;});
+    let foodState=JSON.parse(localStorage.getItem('gorgon-foods')||'{}'),foods=[],query='',hideEaten=false,active='all';
+    const current=()=>clamp(skillState[gourmandKey]);
+    const foodKey=food=>food.name;
+    const eaten=food=>Boolean(foodState[foodKey(food)]);
+    const canEat=food=>food.gourmand<=current();
+    const saveLevel=()=>localStorage.setItem('gorgon-ledger',JSON.stringify(skillState));
+    const saveFoods=()=>localStorage.setItem('gorgon-foods',JSON.stringify(foodState));
+
+    function renderFilters(){
+      const options=[['all','All foods',foods.length],['ready','Can eat',foods.filter(canEat).length],['locked','Not yet',foods.filter(food=>!canEat(food)).length]];
+      document.getElementById('filters').innerHTML=options.map(([id,label,count])=>`<button class="${active===id?'active':''}" data-filter="${id}"><span>${label}</span><span class="count">${count}</span></button>`).join('');
+      document.querySelectorAll('[data-filter]').forEach(button=>button.onclick=()=>{active=button.dataset.filter;render();});
+    }
+
+    function acquisitionHtml(food){
+      const sellers=(food.recipeSellers||[]).map(seller=>`<div><strong>Recipe seller:</strong> <a href="${escapeHtml(seller.href)}" target="_blank" rel="noopener">${escapeHtml(seller.text)}</a></div>`);
+      const locations=(food.acquisition||[]).map(source=>`<div><strong>${escapeHtml(source.kind)}:</strong> ${escapeHtml(source.text)}</div>`);
+      return [...sellers,...locations].join('')||'<span class="unknown">No acquisition source is currently listed on the wiki.</span>';
+    }
+
+    function render(){
+      document.getElementById('gourmandLevel').value=current();
+      document.getElementById('eatenCount').textContent=foods.filter(eaten).length;
+      document.getElementById('totalCount').textContent=foods.length;
+      renderFilters();
+      const needle=query.toLowerCase();
+      const visible=foods.filter(food=>(!hideEaten||!eaten(food))&&(active==='all'||active==='ready'&&canEat(food)||active==='locked'&&!canEat(food))&&`${food.name} ${food.type} ${food.recipeType} ${(food.recipeSellers||[]).map(x=>x.text).join(' ')} ${(food.acquisition||[]).map(x=>x.text).join(' ')}`.toLowerCase().includes(needle));
+      const groups=new Map();
+      for(const food of visible){if(!groups.has(food.gourmand))groups.set(food.gourmand,[]);groups.get(food.gourmand).push(food);}
+      document.getElementById('groups').innerHTML=groups.size?[...groups.entries()].sort((a,b)=>a[0]-b[0]).map(([level,items])=>`<section class="group"><header class="group-head"><h2 class="group-title">Gourmand ${level}</h2><span class="group-meta">${items.length} food${items.length===1?'':'s'}</span></header><div class="food-head"><span></span><span>Food</span><span>Type</span><span>Food level</span><span>Recipe</span><span>Where to get it</span></div>${items.map(food=>`<div class="food ${eaten(food)?'eaten':canEat(food)?'can-eat':''}" data-food="${escapeHtml(foodKey(food))}"><input class="food-check" type="checkbox" ${eaten(food)?'checked':''} aria-label="${escapeHtml(food.name)} eaten"><a class="food-name" href="${escapeHtml(food.href)}" target="_blank" rel="noopener">${escapeHtml(food.name)}</a><span class="food-type pill">${escapeHtml(food.type||'Food')}</span><span class="food-level pill">Level ${food.foodLevel}</span><span class="recipe">${food.recipeType?escapeHtml(food.recipeType)+(food.recipeLevel?' '+food.recipeLevel:''):'No recipe listed'}</span><div class="acquisition">${acquisitionHtml(food)}</div></div>`).join('')}</section>`).join(''):'<div class="empty">No foods match this view.</div>';
+      document.querySelectorAll('.food-check').forEach(box=>box.onchange=()=>{const id=box.closest('.food').dataset.food;if(box.checked)foodState[id]=true;else delete foodState[id];saveFoods();render();});
+    }
+
+    document.getElementById('gourmandLevel').oninput=event=>{skillState[gourmandKey]=clamp(event.target.value);saveLevel();render();};
+    document.getElementById('search').oninput=event=>{query=event.target.value.trim();render();};
+    document.getElementById('hideEaten').onclick=event=>{hideEaten=!hideEaten;event.target.textContent=hideEaten?'Show eaten':'Hide eaten';render();};
+    window.addEventListener('storage',event=>{if(event.key==='gorgon-ledger'){skillState=JSON.parse(event.newValue||'{}');render();}if(event.key==='gorgon-foods'){foodState=JSON.parse(event.newValue||'{}');render();}});
+    fetch('foods.json',{cache:'no-store'}).then(response=>{if(!response.ok)throw new Error('Food data unavailable');return response.json();}).then(data=>{foods=data.sort((a,b)=>a.gourmand-b.gourmand||a.foodLevel-b.foodLevel||a.name.localeCompare(b.name));render();}).catch(()=>{document.getElementById('groups').innerHTML='<div class="empty">The edible list could not be loaded.</div>';});
+    render();
+  </script>
+</body>
+</html>

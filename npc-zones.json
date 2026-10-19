@@ -1,0 +1,650 @@
+{
+  "Agrashab/Sun Vale": {
+    "zone": "Sun Vale",
+    "level": 20
+  },
+  "Ailred": {
+    "zone": "City of Povus",
+    "level": 75
+  },
+  "Arianna Fangblade": {
+    "zone": "Red Wing Casino",
+    "level": 30
+  },
+  "Barnaby": {
+    "zone": "Kur Mountains",
+    "level": 35
+  },
+  "Baroness Marith Felgard": {
+    "zone": "Serbule Hills",
+    "level": 1
+  },
+  "Backfat": {
+    "zone": "Fae Realm",
+    "level": 70
+  },
+  "Amutasa": {
+    "zone": "Rahu",
+    "level": 50
+  },
+  "Bellema Deftwhisper": {
+    "zone": "Gazluk",
+    "level": 70
+  },
+  "Blanche": {
+    "zone": "Serbule Keep",
+    "level": 1
+  },
+  "Bogaku": {
+    "zone": "Dungeon",
+    "level": 10
+  },
+  "Brugo the Wise": {
+    "zone": "Povus",
+    "level": 75
+  },
+  "Ashk the Answerer": {
+    "zone": "Rahu",
+    "level": 50
+  },
+  "Cleo Conyer": {
+    "zone": "Serbule Hills",
+    "level": 1
+  },
+  "Chirrra": {
+    "zone": "Dungeon",
+    "level": 10
+  },
+  "Charles Thompson": {
+    "zone": "Serbule",
+    "level": 1
+  },
+  "Brianna Willer": {
+    "zone": "Serbule Hills",
+    "level": 1
+  },
+  "Dachak the Digger": {
+    "zone": "City of Povus",
+    "level": 75
+  },
+  "Corey The Croaker": {
+    "zone": "Dungeon",
+    "level": 10
+  },
+  "Crelpin": {
+    "zone": "Fae Realm",
+    "level": 70
+  },
+  "Azalak": {
+    "zone": "Serbule",
+    "level": 1
+  },
+  "Daisy (NPC)": {
+    "zone": "Animal Town",
+    "level": 20
+  },
+  "Dog Ear": {
+    "zone": "Povus",
+    "level": 75
+  },
+  "Eleme": {
+    "zone": "Great Tree",
+    "level": 20
+  },
+  "Bendith the Banished": {
+    "zone": "Fae Realm",
+    "level": 70
+  },
+  "Daniel Murderdark": {
+    "zone": "Rahu",
+    "level": 50
+  },
+  "Ensign Cricket": {
+    "zone": "Dungeon",
+    "level": 10
+  },
+  "Braigon": {
+    "zone": "Eltibule Keep",
+    "level": 15
+  },
+  "Echur": {
+    "zone": "Serbule Keep",
+    "level": 1
+  },
+  "Ferand Deftwhisper": {
+    "zone": "City of Povus",
+    "level": 75
+  },
+  "Engineer Crall": {
+    "zone": "Vidaria",
+    "level": 90
+  },
+  "Durstin Tallow": {
+    "zone": "Serbule Hills",
+    "level": 1
+  },
+  "Elahil": {
+    "zone": "Serbule Keep",
+    "level": 1
+  },
+  "Fazzi": {
+    "zone": "Dungeon",
+    "level": 10
+  },
+  "Ferris Blueheart": {
+    "zone": "Vidaria",
+    "level": 90
+  },
+  "Elaina": {
+    "zone": "Animal Town",
+    "level": 20
+  },
+  "Furlak": {
+    "zone": "City of Rahu",
+    "level": 50
+  },
+  "Gerrux": {
+    "zone": "City of Povus",
+    "level": 75
+  },
+  "Eveline Rastin": {
+    "zone": "Red Wing Casino",
+    "level": 30
+  },
+  "Gasu'um": {
+    "zone": "Gazluk",
+    "level": 70
+  },
+  "Flia": {
+    "zone": "Serbule",
+    "level": 1
+  },
+  "Gisli": {
+    "zone": "Serbule Keep",
+    "level": 1
+  },
+  "Gershok": {
+    "zone": "Serbule Hills",
+    "level": 1
+  },
+  "Glajur": {
+    "zone": "Dungeon",
+    "level": 10
+  },
+  "George Madler": {
+    "zone": "Eltibule Keep",
+    "level": 15
+  },
+  "Fainor": {
+    "zone": "Serbule Keep",
+    "level": 1
+  },
+  "Grakelsput": {
+    "zone": "Povus",
+    "level": 75
+  },
+  "Floxie": {
+    "zone": "Fae Realm",
+    "level": 70
+  },
+  "Gorvessa": {
+    "zone": "Dungeon",
+    "level": 10
+  },
+  "Harry the Wolf": {
+    "zone": "Serbule Keep",
+    "level": 1
+  },
+  "Hulon": {
+    "zone": "Serbule Keep",
+    "level": 1
+  },
+  "Helena Veilmoor": {
+    "zone": "Eltibule",
+    "level": 15
+  },
+  "Gretchen Salas": {
+    "zone": "Eltibule",
+    "level": 15
+  },
+  "James the Butterfly": {
+    "zone": "Dungeon",
+    "level": 10
+  },
+  "Hemmit Magmagrip": {
+    "zone": "Gazluk",
+    "level": 70
+  },
+  "Felmer": {
+    "zone": "Fae Realm",
+    "level": 70
+  },
+  "Hogan": {
+    "zone": "Eltibule",
+    "level": 15
+  },
+  "Hiral": {
+    "zone": "Great Tree",
+    "level": 20
+  },
+  "Jace Soral": {
+    "zone": "Kur Mountains",
+    "level": 35
+  },
+  "Ivyn": {
+    "zone": "Serbule",
+    "level": 1
+  },
+  "Irkima": {
+    "zone": "Red Wing Casino",
+    "level": 30
+  },
+  "Jaime Fatholm": {
+    "zone": "Serbule Hills",
+    "level": 1
+  },
+  "Jumjab": {
+    "zone": "Eltibule",
+    "level": 15
+  },
+  "Jumper": {
+    "zone": "Animal Town",
+    "level": 20
+  },
+  "Julius Patton": {
+    "zone": "Serbule Hills",
+    "level": 1
+  },
+  "Kelim": {
+    "zone": "Amulna",
+    "level": 45
+  },
+  "Joeh": {
+    "zone": "Serbule Keep",
+    "level": 1
+  },
+  "Kodan": {
+    "zone": "Animal Town",
+    "level": 20
+  },
+  "Jesina": {
+    "zone": "Antry Farm",
+    "level": 15
+  },
+  "Lady Alethina": {
+    "zone": "Red Wing Casino",
+    "level": 30
+  },
+  "Kib the Unkillable": {
+    "zone": "Red Wing Casino",
+    "level": 30
+  },
+  "Lady Windsong": {
+    "zone": "Rahu",
+    "level": 50
+  },
+  "Lana Songtree": {
+    "zone": "Serbule Hills",
+    "level": 1
+  },
+  "Lincha": {
+    "zone": "City of Povus",
+    "level": 75
+  },
+  "Lamashu": {
+    "zone": "Kur Mountains",
+    "level": 35
+  },
+  "Larsan": {
+    "zone": "Serbule Keep",
+    "level": 1
+  },
+  "Kalaba": {
+    "zone": "Eltibule Keep",
+    "level": 15
+  },
+  "Lawara": {
+    "zone": "Anagoge",
+    "level": 0
+  },
+  "Leonard Allenson": {
+    "zone": "Serbule",
+    "level": 1
+  },
+  "Jake the Buckler": {
+    "zone": "Druid Camp",
+    "level": 20
+  },
+  "Lumpfuzz": {
+    "zone": "Amulna",
+    "level": 45
+  },
+  "Lisi": {
+    "zone": "Great Tree",
+    "level": 20
+  },
+  "Makara": {
+    "zone": "Ilmari",
+    "level": 45
+  },
+  "Mirraverre": {
+    "zone": "Phantom Ilmari Desert",
+    "level": 1
+  },
+  "Leah Bowman": {
+    "zone": "City of Povus",
+    "level": 75
+  },
+  "Mope": {
+    "zone": "Povus",
+    "level": 75
+  },
+  "Kleave": {
+    "zone": "Eltibule Keep",
+    "level": 15
+  },
+  "Marna": {
+    "zone": "Serbule Keep",
+    "level": 1
+  },
+  "Mythander": {
+    "zone": "Eltibule",
+    "level": 15
+  },
+  "Mandibles": {
+    "zone": "Red Wing Casino",
+    "level": 30
+  },
+  "Mu": {
+    "zone": "Dungeon",
+    "level": 10
+  },
+  "Nightshade": {
+    "zone": "Kur Mountains",
+    "level": 35
+  },
+  "Nelson Ballard": {
+    "zone": "Serbule Keep",
+    "level": 1
+  },
+  "Nissim": {
+    "zone": "Amulna",
+    "level": 45
+  },
+  "Merriana": {
+    "zone": "Serbule Hills",
+    "level": 1
+  },
+  "Oritania": {
+    "zone": "Eltibule Keep",
+    "level": 15
+  },
+  "Orrrilund": {
+    "zone": "Dungeon",
+    "level": 10
+  },
+  "Mox Warcut": {
+    "zone": "Gazluk",
+    "level": 70
+  },
+  "Norbert": {
+    "zone": "Animal Town",
+    "level": 20
+  },
+  "Percy Evans": {
+    "zone": "Eltibule",
+    "level": 15
+  },
+  "Nishika": {
+    "zone": "Rahu",
+    "level": 50
+  },
+  "Otis": {
+    "zone": "Red Wing Casino",
+    "level": 30
+  },
+  "Pickles": {
+    "zone": "Kur Mountains",
+    "level": 35
+  },
+  "Mushroom Jack": {
+    "zone": "Serbule Keep",
+    "level": 1
+  },
+  "Paul Vaughn": {
+    "zone": "Serbule Hills",
+    "level": 1
+  },
+  "Poe": {
+    "zone": "Dungeon",
+    "level": 10
+  },
+  "Percussa": {
+    "zone": "Rahu",
+    "level": 50
+  },
+  "Noita the Green": {
+    "zone": "Fae Realm",
+    "level": 70
+  },
+  "Red": {
+    "zone": "Kur Mountains",
+    "level": 35
+  },
+  "Ragabir": {
+    "zone": "Red Wing Casino",
+    "level": 30
+  },
+  "Raul": {
+    "zone": "Animal Town",
+    "level": 20
+  },
+  "Preta": {
+    "zone": "Great Tree",
+    "level": 20
+  },
+  "Rita": {
+    "zone": "Serbule Keep",
+    "level": 1
+  },
+  "Ricatu": {
+    "zone": "City of Povus",
+    "level": 75
+  },
+  "Rick Snapley": {
+    "zone": "Gazluk",
+    "level": 70
+  },
+  "Qatik": {
+    "zone": "Red Wing Casino",
+    "level": 30
+  },
+  "Riston": {
+    "zone": "Red Wing Casino",
+    "level": 30
+  },
+  "Pegast": {
+    "zone": "Fae Realm",
+    "level": 70
+  },
+  "Rohina": {
+    "zone": "Druid Camp",
+    "level": 20
+  },
+  "Raina": {
+    "zone": "Fae Realm",
+    "level": 70
+  },
+  "Ser Lorentz": {
+    "zone": "Vidaria",
+    "level": 90
+  },
+  "Sanja": {
+    "zone": "Kur Mountains",
+    "level": 35
+  },
+  "Sammie Grimspine": {
+    "zone": "Serbule Hills",
+    "level": 1
+  },
+  "Selaxi": {
+    "zone": "Amulna",
+    "level": 45
+  },
+  "Roshun the Traitor": {
+    "zone": "Serbule",
+    "level": 1
+  },
+  "Sir Arif": {
+    "zone": "Dungeon",
+    "level": 10
+  },
+  "Sir Hughes": {
+    "zone": "Statehelm",
+    "level": 80
+  },
+  "Shirogin": {
+    "zone": "Rahu",
+    "level": 50
+  },
+  "Sie Antry": {
+    "zone": "Antry Farm",
+    "level": 15
+  },
+  "Sir Coth": {
+    "zone": "Serbule Keep",
+    "level": 1
+  },
+  "Sona": {
+    "zone": "Gazluk",
+    "level": 70
+  },
+  "Spot": {
+    "zone": "Animal Town",
+    "level": 20
+  },
+  "Sirine": {
+    "zone": "Rahu",
+    "level": 50
+  },
+  "Suspicious Cow": {
+    "zone": "Eltibule",
+    "level": 15
+  },
+  "Tangle": {
+    "zone": "Kur Mountains",
+    "level": 35
+  },
+  "Tavilak": {
+    "zone": "Red Wing Casino",
+    "level": 30
+  },
+  "Trekker": {
+    "zone": "Gazluk",
+    "level": 70
+  },
+  "Trasen": {
+    "zone": "Serbule Hills",
+    "level": 1
+  },
+  "Tadion": {
+    "zone": "Serbule Keep",
+    "level": 1
+  },
+  "Squidlips": {
+    "zone": "Sun Vale",
+    "level": 20
+  },
+  "Torgan": {
+    "zone": "Gazluk",
+    "level": 70
+  },
+  "Therese": {
+    "zone": "Serbule Keep",
+    "level": 1
+  },
+  "Umarak": {
+    "zone": "City of Povus",
+    "level": 75
+  },
+  "The Sand Seer": {
+    "zone": "Amulna",
+    "level": 45
+  },
+  "Tyler Green": {
+    "zone": "Serbule Hills",
+    "level": 1
+  },
+  "Way": {
+    "zone": "Dungeon",
+    "level": 10
+  },
+  "Voo": {
+    "zone": "Dungeon",
+    "level": 10
+  },
+  "Thimble Pete": {
+    "zone": "Eltibule",
+    "level": 15
+  },
+  "Urzab": {
+    "zone": "Amulna",
+    "level": 45
+  },
+  "Solgribue": {
+    "zone": "Fae Realm",
+    "level": 70
+  },
+  "Velkort": {
+    "zone": "Serbule Keep",
+    "level": 1
+  },
+  "Willem Fangblade": {
+    "zone": "Red Wing Casino",
+    "level": 30
+  },
+  "Yasinda": {
+    "zone": "Eltibule",
+    "level": 15
+  },
+  "Wintria Irasce": {
+    "zone": "Rahu",
+    "level": 50
+  },
+  "Yetta": {
+    "zone": "Eltibule Keep",
+    "level": 15
+  },
+  "Yagreet": {
+    "zone": "Great Tree",
+    "level": 20
+  },
+  "Zealo": {
+    "zone": "Carpal Tunnels",
+    "level": 10
+  },
+  "Ukorga": {
+    "zone": "Kur Mountains",
+    "level": 35
+  },
+  "Yavazek": {
+    "zone": "Animal Town",
+    "level": 20
+  },
+  "Zhao": {
+    "zone": "Rahu",
+    "level": 50
+  },
+  "Rappanel": {
+    "zone": "Serbule Hills",
+    "level": 1
+  },
+  "Tremmond Blackhammer": {
+    "zone": "City of Povus",
+    "level": 75
+  },
+  "Yogzi": {
+    "zone": "Druid Camp",
+    "level": 20
+  }
+}
