@@ -64,3 +64,7 @@ live in `work/`; generated JSON files are stored with the feature that uses them
 
 This is an unofficial community tool and is not affiliated with Elder Game,
 LLC.
+
+## License
+
+Gorgon Ledger is available under the [MIT License](LICENSE).
